@@ -467,13 +467,15 @@
         box-shadow: var(--shadow);
         padding: 24px;
         min-height: 180px;
+        color: var(--ink);
       }
 
       .tile h3 {
         margin: 14px 0 8px;
         font-size: 1rem;
-        font-weight: 700;
+        font-weight: 800;
         letter-spacing: -0.02em;
+        color: var(--ink);
       }
 
       .tile p {
@@ -486,17 +488,18 @@
       .metric-value {
         margin: 12px 0 6px;
         font-size: 1.85rem;
-        font-weight: 700;
+        font-weight: 850;
         letter-spacing: -0.03em;
+        color: var(--ink);
       }
 
       .metric-label {
         margin: 0;
         font-size: 12px;
-        font-weight: 500;
+        font-weight: 650;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: var(--muted2);
+        color: var(--muted);
       }
 
       .icon {
@@ -587,6 +590,10 @@
         font-size: 14px;
       }
 
+      .company-address {
+        text-align: center;
+      }
+
       .perf-bar {
         margin-top: 20px;
         border-radius: var(--radius-lg);
@@ -599,11 +606,12 @@
         gap: 14px;
         align-items: center;
         justify-content: space-between;
+        color: var(--ink);
       }
 
       .perf-bar strong {
         font-size: 15px;
-        font-weight: 700;
+        font-weight: 850;
       }
 
       .perf-bar .disclaimer {
@@ -1214,7 +1222,7 @@
                         />
                       </svg>
                     </div>
-                    <p>
+                    <p class="company-address">
                       <strong style="color: var(--ink)">Company</strong><br />
                       Norvex Asset Management Ltd.<br />
                       Arch. Makarios III Avenue 205<br />
