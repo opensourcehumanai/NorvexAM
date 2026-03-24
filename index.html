@@ -246,6 +246,28 @@
         min-height: 420px;
       }
 
+      .portraitImg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 18%;
+        filter: saturate(0.98) contrast(1.04);
+        transform: scale(1.02);
+        z-index: 0;
+      }
+
+      .portraitFade {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(620px 380px at 20% 20%, rgba(0, 209, 255, 0.14), transparent 60%),
+          linear-gradient(180deg, rgba(244, 241, 235, 0.10), rgba(244, 241, 235, 0.02) 60%, rgba(11, 15, 23, 0.08));
+        z-index: 1;
+        pointer-events: none;
+      }
+
       .portrait::after {
         content: "";
         position: absolute;
@@ -255,6 +277,7 @@
         transform: rotate(18deg);
         background: radial-gradient(circle at 30% 30%, rgba(0, 209, 255, 0.22), transparent 60%);
         filter: blur(0px);
+        z-index: 2;
       }
 
       .portrait .ghost {
@@ -266,6 +289,7 @@
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         padding: 12px 12px 10px;
+        z-index: 3;
       }
 
       .portrait .ghost strong {
@@ -721,7 +745,9 @@
           <div class="heroCard">
             <div class="heroInner">
               <div class="heroGrid">
-                <div class="portrait" aria-label="Firm portrait placeholder">
+                <div class="portrait" aria-label="Firm portrait">
+                  <img class="portraitImg" src="assets/portrait.png" alt="Firm portrait" loading="eager" />
+                  <div class="portraitFade" aria-hidden="true"></div>
                   <div class="ghost">
                     <strong>Norvex Asset Management</strong>
                     <span>
