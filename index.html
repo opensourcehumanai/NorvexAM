@@ -288,7 +288,7 @@
         object-position: center 18%;
         filter: saturate(0.98) contrast(1.04);
         transform: scale(1.02);
-        z-index: 0;
+        z-index: 2;
       }
 
       .portraitFade {
@@ -297,7 +297,7 @@
         background:
           radial-gradient(620px 380px at 20% 20%, rgba(0, 209, 255, 0.14), transparent 60%),
           linear-gradient(180deg, rgba(244, 241, 235, 0.10), rgba(244, 241, 235, 0.02) 60%, rgba(11, 15, 23, 0.08));
-        z-index: 1;
+        z-index: 3;
         pointer-events: none;
       }
 
@@ -310,7 +310,7 @@
         transform: rotate(18deg);
         background: radial-gradient(circle at 30% 30%, rgba(0, 209, 255, 0.22), transparent 60%);
         filter: blur(0px);
-        z-index: 2;
+        z-index: 4;
       }
 
       .portrait .ghost {
@@ -322,7 +322,7 @@
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         padding: 12px 12px 10px;
-        z-index: 3;
+        z-index: 5;
       }
 
       .portrait .ghost strong {
@@ -1393,6 +1393,72 @@
 
         window.location.href = url;
       });
+
+      async function chromaKeyPortrait() {
+        const img = document.querySelector(".portraitImg");
+        if (!(img instanceof HTMLImageElement)) return;
+
+        const ensureLoaded =
+          img.complete && img.naturalWidth > 0
+            ? Promise.resolve()
+            : new Promise((resolve, reject) => {
+                img.addEventListener("load", resolve, { once: true });
+                img.addEventListener("error", reject, { once: true });
+              });
+
+        try {
+          await ensureLoaded;
+          const w = img.naturalWidth;
+          const h = img.naturalHeight;
+          if (!w || !h) return;
+
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d", { willReadFrequently: true });
+          if (!ctx) return;
+
+          // Keep it fast: process at a capped resolution.
+          const maxSide = 1200;
+          const scale = Math.min(1, maxSide / Math.max(w, h));
+          canvas.width = Math.max(1, Math.round(w * scale));
+          canvas.height = Math.max(1, Math.round(h * scale));
+
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const d = imageData.data;
+
+          // Simple near-black key with soft edge.
+          //  - below k0: fully transparent
+          //  - between k0..k1: fade to preserve edges/hair
+          const k0 = 18;
+          const k1 = 60;
+
+          for (let i = 0; i < d.length; i += 4) {
+            const r = d[i];
+            const g = d[i + 1];
+            const b = d[i + 2];
+            const a = d[i + 3];
+            if (a === 0) continue;
+
+            const m = Math.max(r, g, b);
+            if (m <= k0) {
+              d[i + 3] = 0;
+              continue;
+            }
+            if (m < k1) {
+              const t = (m - k0) / (k1 - k0); // 0..1
+              d[i + 3] = Math.round(a * t);
+            }
+          }
+
+          ctx.putImageData(imageData, 0, 0);
+          img.src = canvas.toDataURL("image/png");
+          img.style.filter = "saturate(1.02) contrast(1.05)";
+        } catch {
+          // If anything fails, fall back to the original image.
+        }
+      }
+
+      chromaKeyPortrait();
     </script>
   </body>
 </html>
