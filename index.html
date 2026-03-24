@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta
+      name="description"
+      content="Norvex is a boutique asset management firm built for patient compounding. Concentrated portfolios, disciplined risk management, and transparent communication."
+    />
+
+    <title>Norvex — Boutique Asset Management</title>
+
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg0: #070a12;
+        --bg1: #0b1220;
+        --card: rgba(255, 255, 255, 0.06);
+        --card2: rgba(255, 255, 255, 0.08);
+        --stroke: rgba(255, 255, 255, 0.12);
+        --stroke2: rgba(255, 255, 255, 0.18);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --faint: rgba(255, 255, 255, 0.56);
+        --shadow: 0 22px 80px rgba(0, 0, 0, 0.5);
+        --shadow2: 0 12px 30px rgba(0, 0, 0, 0.35);
+        --accent: #7cf0ff;
+        --accent2: #b1ff8b;
+        --accent3: #b49bff;
+        --danger: #ff6b7a;
+
+        --radius: 18px;
+        --radius2: 28px;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          "Apple Color Emoji",
+          "Segoe UI Emoji";
+        letter-spacing: -0.01em;
+        color: var(--text);
+        background:
+          radial-gradient(1200px 800px at 18% 8%, rgba(124, 240, 255, 0.16), transparent 55%),
+          radial-gradient(1000px 700px at 80% 15%, rgba(180, 155, 255, 0.18), transparent 55%),
+          radial-gradient(1000px 650px at 55% 85%, rgba(177, 255, 139, 0.12), transparent 55%),
+          linear-gradient(180deg, var(--bg0), var(--bg1) 55%, #070a12);
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Top nav */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        background: linear-gradient(
+          180deg,
+          rgba(7, 10, 18, 0.9),
+          rgba(7, 10, 18, 0.6) 60%,
+          rgba(7, 10, 18, 0.0)
+        );
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 220px;
+      }
+
+      .mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background:
+          radial-gradient(18px 18px at 30% 32%, rgba(124, 240, 255, 0.9), rgba(124, 240, 255, 0) 60%),
+          radial-gradient(24px 20px at 68% 70%, rgba(177, 255, 139, 0.7), rgba(177, 255, 139, 0) 70%),
+          radial-gradient(24px 24px at 75% 30%, rgba(180, 155, 255, 0.75), rgba(180, 155, 255, 0) 65%),
+          rgba(255, 255, 255, 0.04);
+        box-shadow: 0 12px 50px rgba(124, 240, 255, 0.08);
+      }
+
+      .brand strong {
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 2px;
+        color: var(--faint);
+        font-size: 12px;
+        letter-spacing: 0.01em;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        color: rgba(255, 255, 255, 0.78);
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      }
+
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.10);
+        color: rgba(255, 255, 255, 0.92);
+        transform: translateY(-1px);
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: linear-gradient(135deg, rgba(124, 240, 255, 0.14), rgba(180, 155, 255, 0.12));
+        box-shadow: 0 14px 70px rgba(124, 240, 255, 0.10);
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .cta:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.22);
+        background: linear-gradient(135deg, rgba(124, 240, 255, 0.18), rgba(180, 155, 255, 0.16));
+      }
+
+      .cta:focus-visible,
+      nav a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid rgba(124, 240, 255, 0.35);
+        outline-offset: 3px;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 64px 0 26px;
+      }
+
+      .heroGrid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 22px;
+        align-items: start;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, var(--accent), rgba(124, 240, 255, 0.2));
+        box-shadow: 0 0 0 6px rgba(124, 240, 255, 0.08);
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(40px, 5vw, 62px);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 58ch;
+      }
+
+      .heroActions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.86);
+        font-weight: 600;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .secondary:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.20);
+      }
+
+      .fineprint {
+        margin-top: 14px;
+        color: rgba(255, 255, 255, 0.56);
+        font-size: 12.5px;
+        line-height: 1.6;
+      }
+
+      .card {
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          radial-gradient(850px 350px at 20% 0%, rgba(124, 240, 255, 0.16), transparent 55%),
+          radial-gradient(850px 380px at 90% 30%, rgba(180, 155, 255, 0.16), transparent 55%),
+          radial-gradient(850px 380px at 45% 110%, rgba(177, 255, 139, 0.10), transparent 55%),
+          rgba(255, 255, 255, 0.05);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .cardInner {
+        padding: 18px;
+      }
+
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .kpi {
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(7, 10, 18, 0.30);
+        padding: 14px 14px 12px;
+      }
+
+      .kpi strong {
+        display: block;
+        font-size: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .kpi span {
+        display: block;
+        margin-top: 4px;
+        color: rgba(255, 255, 255, 0.66);
+        font-size: 12.5px;
+        line-height: 1.35;
+      }
+
+      .mini {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.80);
+        font-size: 13px;
+      }
+
+      .pill code {
+        font-family:
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Monaco,
+          Consolas,
+          "Liberation Mono",
+          "Courier New",
+          monospace;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      /* Sections */
+      section {
+        padding: 42px 0;
+      }
+
+      .sectionHead {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .sectionHead h2 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+      }
+
+      .sectionHead p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 66ch;
+        line-height: 1.6;
+      }
+
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .tile {
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: var(--shadow2);
+        padding: 16px;
+        min-height: 168px;
+      }
+
+      .tile h3 {
+        margin: 8px 0 6px;
+        font-size: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .tile p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: linear-gradient(135deg, rgba(124, 240, 255, 0.14), rgba(180, 155, 255, 0.10));
+        display: grid;
+        place-items: center;
+      }
+
+      .icon svg {
+        width: 18px;
+        height: 18px;
+        opacity: 0.92;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .panel {
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: var(--shadow2);
+        overflow: hidden;
+      }
+
+      .panel .pad {
+        padding: 18px;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        margin: 12px 0 0;
+        list-style: none;
+      }
+
+      .li {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 10px;
+        align-items: start;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: rgba(7, 10, 18, 0.26);
+      }
+
+      .li .tick {
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(124, 240, 255, 0.10);
+      }
+
+      .li .tick svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .li p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.74);
+        line-height: 1.55;
+        font-size: 14px;
+      }
+
+      /* Contact form */
+      form {
+        display: grid;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .row2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(7, 10, 18, 0.35);
+        padding: 11px 12px;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 110px;
+      }
+
+      .submitRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 2px;
+      }
+
+      .note {
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+
+      footer {
+        padding: 26px 0 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: linear-gradient(180deg, rgba(7, 10, 18, 0.0), rgba(7, 10, 18, 0.85));
+      }
+
+      .foot {
+        display: grid;
+        gap: 12px;
+      }
+
+      .footTop {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .mutedLinks {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: rgba(255, 255, 255, 0.70);
+        font-size: 13px;
+      }
+
+      .mutedLinks a {
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+      }
+
+      .mutedLinks a:hover {
+        border-color: rgba(255, 255, 255, 0.10);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .legal {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 12.5px;
+        line-height: 1.6;
+      }
+
+      /* Responsive */
+      @media (max-width: 920px) {
+        .heroGrid {
+          grid-template-columns: 1fr;
+        }
+        .brand {
+          min-width: unset;
+        }
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+        .split {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="sr-only" href="#main">Skip to content</a>
+
+    <header>
+      <div class="container">
+        <div class="nav">
+          <a class="brand" href="#top" aria-label="Norvex home">
+            <div class="mark" aria-hidden="true"></div>
+            <div>
+              <strong>Norvex</strong>
+              <span>Boutique Asset Management</span>
+            </div>
+          </a>
+
+          <nav aria-label="Primary">
+            <ul>
+              <li><a href="#approach">Approach</a></li>
+              <li><a href="#strategies">Strategies</a></li>
+              <li><a href="#governance">Governance</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <a class="cta" href="#contact">
+            Request an intro
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div id="top" class="hero">
+        <div class="container">
+          <div class="heroGrid">
+            <div>
+              <div class="eyebrow">
+                <span class="dot" aria-hidden="true"></span>
+                Long-term, fundamentals-first investing
+              </div>
+
+              <h1>
+                Patient compounding,
+                <span style="color: rgba(255, 255, 255, 0.75)">built to endure.</span>
+              </h1>
+
+              <p class="lead">
+                Norvex is a boutique asset manager focused on high-conviction portfolios, disciplined risk
+                management, and clear client communication—designed for investors who value process over
+                noise.
+              </p>
+
+              <div class="heroActions">
+                <a class="cta" href="#strategies">
+                  Explore strategies
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a class="secondary" href="#approach">
+                  Our approach
+                  <span aria-hidden="true">↘</span>
+                </a>
+              </div>
+
+              <p class="fineprint">
+                This page is informational only and does not constitute an offer, solicitation, or investment
+                advice. Past performance does not guarantee future results.
+              </p>
+            </div>
+
+            <aside class="card" aria-label="Highlights">
+              <div class="cardInner">
+                <div class="kpis">
+                  <div class="kpi">
+                    <strong>Concentrated by design</strong>
+                    <span>Focus on a curated set of businesses we can underwrite deeply.</span>
+                  </div>
+                  <div class="kpi">
+                    <strong>Risk is a process</strong>
+                    <span>Position sizing, drawdown awareness, and scenario planning.</span>
+                  </div>
+                  <div class="kpi">
+                    <strong>Aligned incentives</strong>
+                    <span>We win by compounding alongside clients over time.</span>
+                  </div>
+                  <div class="kpi">
+                    <strong>Transparent cadence</strong>
+                    <span>Clear letters, clear attribution, clear decision-making.</span>
+                  </div>
+                </div>
+
+                <div class="mini">
+                  <div class="pill">
+                    <span>Typical holding period</span>
+                    <code>multi‑year</code>
+                  </div>
+                  <div class="pill">
+                    <span>Research lens</span>
+                    <code>quality × price × durability</code>
+                  </div>
+                  <div class="pill">
+                    <span>Portfolio construction</span>
+                    <code>conviction‑weighted</code>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <section id="approach" aria-label="Approach">
+        <div class="container">
+          <div class="sectionHead">
+            <div>
+              <h2>Approach</h2>
+              <p>
+                We aim to own durable businesses at sensible prices, with a repeatable research process and a
+                portfolio construction discipline that respects uncertainty.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid3">
+            <article class="tile">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M6 14.5l3.2 3.2L18 9"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3>Quality underwriting</h3>
+              <p>
+                We build conviction through business model clarity, unit economics, competitive moats, and
+                management incentives.
+              </p>
+            </article>
+
+            <article class="tile">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 16l5-5 4 4 7-7"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M20 8v6h-6"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3>Valuation with humility</h3>
+              <p>
+                We stress test assumptions, compare against plausible alternatives, and require a margin of
+                safety.
+              </p>
+            </article>
+
+            <article class="tile">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9 12l2 2 4-5"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3>Risk discipline</h3>
+              <p>
+                We size positions based on conviction and downside, manage correlation, and avoid forced
+                selling via liquidity awareness.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="strategies" aria-label="Strategies">
+        <div class="container">
+          <div class="sectionHead">
+            <div>
+              <h2>Strategies</h2>
+              <p>
+                Clear, focused mandates—structured for real-world implementation and communication. We can
+                tailor guidelines based on investor objectives and constraints.
+              </p>
+            </div>
+          </div>
+
+          <div class="split">
+            <div class="panel">
+              <div class="pad">
+                <h3 style="margin: 0 0 6px; font-size: 16px; letter-spacing: -0.02em">Core Equity</h3>
+                <p style="margin: 0; color: rgba(255, 255, 255, 0.72); line-height: 1.6; font-size: 14px">
+                  A concentrated, fundamentals-driven portfolio of high-quality businesses, intended for
+                  multi-year holding periods.
+                </p>
+                <ul class="list">
+                  <li class="li">
+                    <div class="tick" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>Conviction-weighted allocation, with explicit downside and scenario work.</p>
+                  </li>
+                  <li class="li">
+                    <div class="tick" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>Emphasis on durability, capital allocation, and incentive alignment.</p>
+                  </li>
+                  <li class="li">
+                    <div class="tick" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>Regular letters covering decisions, attribution, and lessons learned.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="pad">
+                <h3 style="margin: 0 0 6px; font-size: 16px; letter-spacing: -0.02em">Absolute Return Mindset</h3>
+                <p style="margin: 0; color: rgba(255, 255, 255, 0.72); line-height: 1.6; font-size: 14px">
+                  A flexible framework centered on capital preservation and opportunity capture, with
+                  thoughtful exposure and liquidity planning.
+                </p>
+                <ul class="list">
+                  <li class="li">
+                    <div class="tick" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>Exposure management to reduce vulnerability in fragile regimes.</p>
+                  </li>
+                  <li class="li">
+                    <div class="tick" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>Opportunistic adds during volatility, guided by pre-defined research work.</p>
+                  </li>
+                  <li class="li">
+                    <div class="tick" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>Transparent guardrails: concentration, liquidity, and drawdown sensitivity.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="governance" aria-label="Governance">
+        <div class="container">
+          <div class="sectionHead">
+            <div>
+              <h2>Governance & transparency</h2>
+              <p>
+                Boutique doesn’t mean opaque. We prioritize clarity, measured decision-making, and strong
+                operational discipline.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid3">
+            <article class="tile">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3v18M3 12h18"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h3>Decision journal</h3>
+              <p>We document theses, risk cases, sizing rationale, and what would change our minds.</p>
+            </article>
+
+            <article class="tile">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 7h10M7 12h10M7 17h10"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h3>Clear reporting</h3>
+              <p>Simple, consistent updates: what we did, why we did it, and what we’re watching next.</p>
+            </article>
+
+            <article class="tile">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M8 21h8M12 17v4M7 17h10a4 4 0 0 0 0-8 5 5 0 0 0-10 0 4 4 0 0 0 0 8z"
+                    stroke="rgba(255,255,255,0.9)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3>Operational rigor</h3>
+              <p>We keep systems clean: data hygiene, access controls, and disciplined execution workflows.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" aria-label="Contact">
+        <div class="container">
+          <div class="sectionHead">
+            <div>
+              <h2>Contact</h2>
+              <p>
+                Want to learn more? Send a short note. If you already have constraints (liquidity needs,
+                benchmark, tax considerations), include them—we’ll respond with next steps.
+              </p>
+            </div>
+          </div>
+
+          <div class="split">
+            <div class="panel">
+              <div class="pad">
+                <h3 style="margin: 0 0 10px; font-size: 16px; letter-spacing: -0.02em">Send a message</h3>
+
+                <form id="contactForm">
+                  <div class="row2">
+                    <label>
+                      Name
+                      <input name="name" autocomplete="name" placeholder="Your name" required />
+                    </label>
+                    <label>
+                      Email
+                      <input name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
+                    </label>
+                  </div>
+
+                  <label>
+                    What are you looking for?
+                    <textarea
+                      name="message"
+                      placeholder="Tell us what matters: horizon, objectives, constraints, and what success looks like."
+                      required
+                    ></textarea>
+                  </label>
+
+                  <div class="submitRow">
+                    <button type="submit" class="cta" style="cursor: pointer">
+                      Draft email
+                      <span aria-hidden="true">↗</span>
+                    </button>
+                    <div class="note">
+                      This opens your email client with a prefilled message.<br />
+                      No data is stored by this page.
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="pad">
+                <h3 style="margin: 0 0 10px; font-size: 16px; letter-spacing: -0.02em">Quick details</h3>
+                <ul class="list" style="margin-top: 0">
+                  <li class="li">
+                    <div class="tick" aria-hidden="true" style="background: rgba(177, 255, 139, 0.10)">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>
+                      <strong style="color: rgba(255, 255, 255, 0.92)">Location:</strong>
+                      Remote-first, global coverage.
+                    </p>
+                  </li>
+                  <li class="li">
+                    <div class="tick" aria-hidden="true" style="background: rgba(180, 155, 255, 0.10)">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>
+                      <strong style="color: rgba(255, 255, 255, 0.92)">Cadence:</strong>
+                      Letters and calls as agreed with clients.
+                    </p>
+                  </li>
+                  <li class="li">
+                    <div class="tick" aria-hidden="true" style="background: rgba(124, 240, 255, 0.10)">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M20 6L9 17l-5-5"
+                          stroke="rgba(255,255,255,0.9)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <p>
+                      <strong style="color: rgba(255, 255, 255, 0.92)">What we optimize for:</strong>
+                      Long-term outcomes, not quarterly optics.
+                    </p>
+                  </li>
+                </ul>
+
+                <div style="margin-top: 12px" class="pill">
+                  <span>Email</span>
+                  <code id="emailText">hello@norvexam.com</code>
+                </div>
+
+                <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
+                  <a class="secondary" href="mailto:hello@norvexam.com?subject=Norvex%20—%20Intro%20request">
+                    Email directly
+                    <span aria-hidden="true">→</span>
+                  </a>
+                  <a class="secondary" href="#top">
+                    Back to top
+                    <span aria-hidden="true">↑</span>
+                  </a>
+                </div>
+
+                <p class="fineprint" style="margin-bottom: 0">
+                  Replace <code style="font-size: 12px">hello@norvexam.com</code> with your preferred inbox.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <div class="footTop">
+            <div class="brand" style="min-width: unset">
+              <div class="mark" aria-hidden="true" style="width: 34px; height: 34px; border-radius: 12px"></div>
+              <div>
+                <strong>Norvex</strong>
+                <span>Boutique Asset Management</span>
+              </div>
+            </div>
+
+            <div class="mutedLinks" aria-label="Footer links">
+              <a href="#approach">Approach</a>
+              <a href="#strategies">Strategies</a>
+              <a href="#governance">Governance</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <div class="legal">
+            © <span id="year"></span> Norvex. All rights reserved.<br />
+            This website is provided for informational purposes only and does not constitute investment advice,
+            an offer, or solicitation. Investing involves risk, including the possible loss of principal.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+      const form = document.getElementById("contactForm");
+      form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = String(data.get("name") ?? "").trim();
+        const email = String(data.get("email") ?? "").trim();
+        const message = String(data.get("message") ?? "").trim();
+
+        const to = "hello@norvexam.com";
+        const subject = `Norvex — Intro request${name ? ` (${name})` : ""}`;
+        const body = [
+          name ? `Name: ${name}` : null,
+          email ? `Email: ${email}` : null,
+          "",
+          message,
+          "",
+          "—",
+          "Sent from norvexam.com (contact form draft)",
+        ]
+          .filter((x) => x !== null)
+          .join("\n");
+
+        const url =
+          "mailto:" +
+          encodeURIComponent(to) +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body);
+
+        window.location.href = url;
+      });
+    </script>
+  </body>
+</html>
