@@ -250,24 +250,32 @@
       .portrait {
         border-radius: clamp(20px, 2.5vw, 32px);
         border: 1px solid var(--border);
-        background:
-          radial-gradient(340px 260px at 28% 24%, rgba(58, 208, 255, 0.2), transparent 62%),
-          radial-gradient(300px 260px at 70% 62%, rgba(20, 30, 45, 0.12), transparent 62%),
-          linear-gradient(135deg, #e8eef2, #d4dde6 45%, #c9d0d8);
+        background: linear-gradient(135deg, #e8eef2, #d4dde6 45%, #c9d0d8);
         position: relative;
         overflow: hidden;
         min-height: 420px;
+        cursor: zoom-in;
       }
 
-      .portrait::after {
-        content: "";
+      .portraitBtn {
+        appearance: none;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        cursor: inherit;
         position: absolute;
-        inset: -40% -40% auto auto;
-        width: 520px;
-        height: 520px;
-        transform: rotate(18deg);
-        background: radial-gradient(circle at 30% 30%, rgba(58, 208, 255, 0.2), transparent 60%);
-        filter: blur(0px);
+        inset: 0;
+      }
+
+      .portraitImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
       }
 
       .portrait .ghost {
@@ -293,6 +301,69 @@
         font-size: 12.5px;
         color: rgba(11, 15, 23, 0.68);
         line-height: 1.45;
+      }
+
+      .portraitHint {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        z-index: 3;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        background: rgba(10, 16, 24, 0.68);
+        color: #fff;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .headshotModal {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(10, 16, 24, 0.78);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      .headshotModal.is-open {
+        display: flex;
+      }
+
+      .headshotDialog {
+        position: relative;
+        width: min(860px, 96vw);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 26px 90px rgba(0, 0, 0, 0.45);
+        background: #0e141c;
+      }
+
+      .headshotDialog img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .headshotClose {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        background: rgba(10, 16, 24, 0.76);
+        color: #fff;
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
       }
 
       .kicker {
@@ -837,7 +908,11 @@
           <div class="heroCard">
             <div class="heroInner">
               <div class="heroGrid">
-                <div class="portrait" aria-label="Firm portrait placeholder">
+                <div class="portrait" aria-label="Professional headshot of principal">
+                  <button class="portraitBtn" type="button" aria-label="Open headshot in modal" data-open-headshot>
+                    <img class="portraitImg" src="assets/portrait.png" alt="Fynn Schreiter" />
+                  </button>
+                  <span class="portraitHint">View photo</span>
                   <div class="ghost">
                     <strong>Norvex Asset Management</strong>
                     <span>
@@ -1178,6 +1253,13 @@
       </section>
     </main>
 
+    <div class="headshotModal" id="headshotModal" aria-hidden="true">
+      <div class="headshotDialog" role="dialog" aria-modal="true" aria-label="Professional headshot">
+        <button class="headshotClose" type="button" aria-label="Close headshot modal" data-close-headshot>×</button>
+        <img src="assets/portrait.png" alt="Fynn Schreiter professional headshot" />
+      </div>
+    </div>
+
     <footer>
       <div class="container">
         <div class="foot">
@@ -1213,6 +1295,26 @@
     <script>
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+      const headshotModal = document.getElementById("headshotModal");
+      const openHeadshot = document.querySelector("[data-open-headshot]");
+      const closeHeadshot = document.querySelector("[data-close-headshot]");
+
+      const setHeadshotState = (isOpen) => {
+        if (!headshotModal) return;
+        headshotModal.classList.toggle("is-open", isOpen);
+        headshotModal.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      };
+
+      openHeadshot?.addEventListener("click", () => setHeadshotState(true));
+      closeHeadshot?.addEventListener("click", () => setHeadshotState(false));
+      headshotModal?.addEventListener("click", (e) => {
+        if (e.target === headshotModal) setHeadshotState(false);
+      });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setHeadshotState(false);
+      });
 
       const form = document.getElementById("contactForm");
       form?.addEventListener("submit", (e) => {
