@@ -3,36 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0b1220" />
+    <meta name="theme-color" content="#101927" />
     <meta
       name="description"
-      content="Norvex is a boutique asset management firm built for patient compounding. Concentrated portfolios, disciplined risk management, and transparent communication."
+      content="Norvex Asset Management. Trusted judgement, held to a serious standard. Discretionary crypto derivatives approach in highly liquid markets."
     />
 
-    <title>Norvex — Boutique Asset Management</title>
+    <title>Norvex Asset Management</title>
 
     <style>
       :root {
-        color-scheme: dark;
-        --bg0: #070a12;
-        --bg1: #0b1220;
-        --card: rgba(255, 255, 255, 0.06);
-        --card2: rgba(255, 255, 255, 0.08);
-        --stroke: rgba(255, 255, 255, 0.12);
-        --stroke2: rgba(255, 255, 255, 0.18);
-        --text: rgba(255, 255, 255, 0.92);
+        --navy-950: #0a1220;
+        --navy-900: #101927;
+        --navy-850: #121e31;
+        --paper: #f4f1eb;
+        --paper2: #efeae1;
+        --ink: #0b0f17;
+        --muted-ink: rgba(11, 15, 23, 0.72);
         --muted: rgba(255, 255, 255, 0.72);
         --faint: rgba(255, 255, 255, 0.56);
-        --shadow: 0 22px 80px rgba(0, 0, 0, 0.5);
-        --shadow2: 0 12px 30px rgba(0, 0, 0, 0.35);
-        --accent: #7cf0ff;
-        --accent2: #b1ff8b;
-        --accent3: #b49bff;
-        --danger: #ff6b7a;
+        --text: rgba(255, 255, 255, 0.92);
+
+        --stroke: rgba(255, 255, 255, 0.14);
+        --stroke2: rgba(255, 255, 255, 0.22);
+        --stroke-ink: rgba(11, 15, 23, 0.10);
+
+        --cyan: #00d1ff;
+        --cyan2: #1be6ff;
 
         --radius: 18px;
-        --radius2: 28px;
-        --max: 1120px;
+        --radius2: 26px;
+        --max: 1160px;
+
+        color-scheme: dark;
       }
 
       * {
@@ -58,11 +61,9 @@
           "Segoe UI Emoji";
         letter-spacing: -0.01em;
         color: var(--text);
-        background:
-          radial-gradient(1200px 800px at 18% 8%, rgba(124, 240, 255, 0.16), transparent 55%),
-          radial-gradient(1000px 700px at 80% 15%, rgba(180, 155, 255, 0.18), transparent 55%),
-          radial-gradient(1000px 650px at 55% 85%, rgba(177, 255, 139, 0.12), transparent 55%),
-          linear-gradient(180deg, var(--bg0), var(--bg1) 55%, #070a12);
+        background: radial-gradient(1100px 600px at 70% 10%, rgba(0, 209, 255, 0.12), transparent 58%),
+          radial-gradient(900px 520px at 20% 8%, rgba(0, 209, 255, 0.08), transparent 56%),
+          linear-gradient(180deg, #060a12, var(--navy-950) 42%, #060a12);
         overflow-x: hidden;
       }
 
@@ -97,12 +98,7 @@
         z-index: 30;
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        background: linear-gradient(
-          180deg,
-          rgba(7, 10, 18, 0.9),
-          rgba(7, 10, 18, 0.6) 60%,
-          rgba(7, 10, 18, 0.0)
-        );
+        background: linear-gradient(180deg, rgba(10, 18, 32, 0.92), rgba(10, 18, 32, 0.68) 55%, rgba(10, 18, 32, 0));
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
@@ -121,17 +117,20 @@
         min-width: 220px;
       }
 
-      .mark {
+      .logoWrap {
         width: 38px;
         height: 38px;
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.14);
-        background:
-          radial-gradient(18px 18px at 30% 32%, rgba(124, 240, 255, 0.9), rgba(124, 240, 255, 0) 60%),
-          radial-gradient(24px 20px at 68% 70%, rgba(177, 255, 139, 0.7), rgba(177, 255, 139, 0) 70%),
-          radial-gradient(24px 24px at 75% 30%, rgba(180, 155, 255, 0.75), rgba(180, 155, 255, 0) 65%),
-          rgba(255, 255, 255, 0.04);
-        box-shadow: 0 12px 50px rgba(124, 240, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 16px 55px rgba(0, 209, 255, 0.10);
+        display: grid;
+        place-items: center;
+      }
+
+      .logo {
+        width: 26px;
+        height: 26px;
       }
 
       .brand strong {
@@ -185,8 +184,8 @@
         padding: 10px 14px;
         border-radius: 14px;
         border: 1px solid rgba(255, 255, 255, 0.16);
-        background: linear-gradient(135deg, rgba(124, 240, 255, 0.14), rgba(180, 155, 255, 0.12));
-        box-shadow: 0 14px 70px rgba(124, 240, 255, 0.10);
+        background: linear-gradient(135deg, rgba(0, 209, 255, 0.18), rgba(0, 209, 255, 0.08));
+        box-shadow: 0 16px 70px rgba(0, 209, 255, 0.14);
         color: rgba(255, 255, 255, 0.92);
         font-weight: 650;
         letter-spacing: -0.01em;
@@ -204,55 +203,126 @@
       button:focus-visible,
       input:focus-visible,
       textarea:focus-visible {
-        outline: 3px solid rgba(124, 240, 255, 0.35);
+        outline: 3px solid rgba(0, 209, 255, 0.35);
         outline-offset: 3px;
       }
 
-      /* Hero */
+      /* Hero (paper) */
       .hero {
-        padding: 64px 0 26px;
+        padding: 28px 0 36px;
+      }
+
+      .heroCard {
+        border-radius: clamp(20px, 2.5vw, 34px);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+        box-shadow: 0 30px 120px rgba(0, 0, 0, 0.52);
+        overflow: hidden;
+      }
+
+      .heroInner {
+        background: radial-gradient(1200px 520px at 65% -10%, rgba(0, 209, 255, 0.12), transparent 55%),
+          linear-gradient(180deg, var(--paper), var(--paper2));
+        color: var(--ink);
+        padding: clamp(18px, 2.4vw, 26px);
       }
 
       .heroGrid {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 22px;
-        align-items: start;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: clamp(14px, 2.2vw, 24px);
+        align-items: stretch;
       }
 
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.05);
-        color: rgba(255, 255, 255, 0.78);
+      .portrait {
+        border-radius: clamp(18px, 2.2vw, 28px);
+        border: 1px solid var(--stroke-ink);
+        background:
+          radial-gradient(340px 260px at 28% 24%, rgba(0, 209, 255, 0.22), transparent 62%),
+          radial-gradient(300px 260px at 70% 62%, rgba(16, 25, 39, 0.20), transparent 62%),
+          linear-gradient(135deg, rgba(16, 25, 39, 0.18), rgba(16, 25, 39, 0.06));
+        position: relative;
+        overflow: hidden;
+        min-height: 420px;
+      }
+
+      .portrait::after {
+        content: "";
+        position: absolute;
+        inset: -40% -40% auto auto;
+        width: 520px;
+        height: 520px;
+        transform: rotate(18deg);
+        background: radial-gradient(circle at 30% 30%, rgba(0, 209, 255, 0.22), transparent 60%);
+        filter: blur(0px);
+      }
+
+      .portrait .ghost {
+        position: absolute;
+        inset: auto 16px 16px 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(11, 15, 23, 0.10);
+        background: rgba(255, 255, 255, 0.60);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 12px 12px 10px;
+      }
+
+      .portrait .ghost strong {
+        display: block;
         font-size: 13px;
+        letter-spacing: 0.01em;
       }
 
-      .dot {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, var(--accent), rgba(124, 240, 255, 0.2));
-        box-shadow: 0 0 0 6px rgba(124, 240, 255, 0.08);
+      .portrait .ghost span {
+        display: block;
+        margin-top: 4px;
+        font-size: 12.5px;
+        color: rgba(11, 15, 23, 0.68);
+        line-height: 1.45;
       }
 
-      h1 {
-        margin: 14px 0 10px;
-        font-size: clamp(40px, 5vw, 62px);
-        line-height: 1.02;
+      .kicker {
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(11, 15, 23, 0.62);
+      }
+
+      .heroCopy h1 {
+        margin: 10px 0 10px;
+        font-family:
+          ui-serif,
+          "Iowan Old Style",
+          "Palatino Linotype",
+          Palatino,
+          "Book Antiqua",
+          Georgia,
+          serif;
+        font-weight: 520;
+        font-size: clamp(40px, 5vw, 66px);
+        line-height: 0.98;
         letter-spacing: -0.03em;
       }
 
-      .lead {
+      .heroCopy p {
         margin: 0;
-        color: var(--muted);
-        font-size: 18px;
-        line-height: 1.6;
-        max-width: 58ch;
+        color: var(--muted-ink);
+        font-size: 15.5px;
+        line-height: 1.7;
+        max-width: 70ch;
+      }
+
+      .rule {
+        height: 1px;
+        background: rgba(11, 15, 23, 0.12);
+        margin: 16px 0 12px;
+      }
+
+      .strap {
+        color: rgba(11, 15, 23, 0.62);
+        font-size: 12.5px;
+        letter-spacing: 0.01em;
       }
 
       .heroActions {
@@ -262,107 +332,61 @@
         margin-top: 18px;
       }
 
-      .secondary {
+      .btnDark {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
-        padding: 10px 14px;
+        padding: 11px 14px;
         border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(255, 255, 255, 0.04);
-        color: rgba(255, 255, 255, 0.86);
-        font-weight: 600;
+        border: 1px solid rgba(11, 15, 23, 0.16);
+        background: rgba(16, 25, 39, 0.92);
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 650;
+        box-shadow: 0 16px 55px rgba(16, 25, 39, 0.22);
         transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
       }
 
-      .secondary:hover {
+      .btnDark:hover {
         transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.06);
-        border-color: rgba(255, 255, 255, 0.20);
+        background: rgba(16, 25, 39, 0.96);
+        border-color: rgba(11, 15, 23, 0.22);
       }
 
-      .fineprint {
-        margin-top: 14px;
-        color: rgba(255, 255, 255, 0.56);
-        font-size: 12.5px;
-        line-height: 1.6;
-      }
-
-      .card {
-        border-radius: var(--radius2);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background:
-          radial-gradient(850px 350px at 20% 0%, rgba(124, 240, 255, 0.16), transparent 55%),
-          radial-gradient(850px 380px at 90% 30%, rgba(180, 155, 255, 0.16), transparent 55%),
-          radial-gradient(850px 380px at 45% 110%, rgba(177, 255, 139, 0.10), transparent 55%),
-          rgba(255, 255, 255, 0.05);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .cardInner {
-        padding: 18px;
-      }
-
-      .kpis {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .kpi {
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(7, 10, 18, 0.30);
-        padding: 14px 14px 12px;
-      }
-
-      .kpi strong {
-        display: block;
-        font-size: 16px;
-        letter-spacing: -0.02em;
-      }
-
-      .kpi span {
-        display: block;
-        margin-top: 4px;
-        color: rgba(255, 255, 255, 0.66);
-        font-size: 12.5px;
-        line-height: 1.35;
-      }
-
-      .mini {
-        margin-top: 12px;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .pill {
-        display: flex;
+      .btnLight {
+        display: inline-flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         gap: 10px;
-        padding: 10px 12px;
+        padding: 11px 14px;
         border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.10);
-        background: rgba(255, 255, 255, 0.04);
-        color: rgba(255, 255, 255, 0.80);
-        font-size: 13px;
+        border: 1px solid rgba(11, 15, 23, 0.14);
+        background: rgba(255, 255, 255, 0.62);
+        color: rgba(11, 15, 23, 0.90);
+        font-weight: 650;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
       }
 
-      .pill code {
-        font-family:
-          ui-monospace,
-          SFMono-Regular,
-          Menlo,
-          Monaco,
-          Consolas,
-          "Liberation Mono",
-          "Courier New",
-          monospace;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.76);
+      .btnLight:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.72);
+        border-color: rgba(11, 15, 23, 0.20);
+      }
+
+      .heroTabs {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .tab {
+        border-radius: 16px;
+        border: 1px solid rgba(11, 15, 23, 0.12);
+        background: rgba(255, 255, 255, 0.50);
+        padding: 10px 12px;
+        font-size: 12.5px;
+        color: rgba(11, 15, 23, 0.70);
       }
 
       /* Sections */
@@ -401,7 +425,7 @@
         border-radius: var(--radius);
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.045);
-        box-shadow: var(--shadow2);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
         padding: 16px;
         min-height: 168px;
       }
@@ -446,7 +470,7 @@
         border-radius: var(--radius2);
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.045);
-        box-shadow: var(--shadow2);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
         overflow: hidden;
       }
 
@@ -532,6 +556,29 @@
         min-height: 110px;
       }
 
+      .rowPhone {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 10px;
+      }
+
+      select {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(7, 10, 18, 0.35);
+        padding: 11px 12px;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 14px;
+      }
+
+      .privacy {
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 12.5px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
       .submitRow {
         display: flex;
         align-items: center;
@@ -596,6 +643,12 @@
         .heroGrid {
           grid-template-columns: 1fr;
         }
+        .portrait {
+          min-height: 320px;
+        }
+        .heroTabs {
+          grid-template-columns: 1fr;
+        }
         .brand {
           min-width: unset;
         }
@@ -603,6 +656,9 @@
           grid-template-columns: 1fr;
         }
         .split {
+          grid-template-columns: 1fr;
+        }
+        .row2 {
           grid-template-columns: 1fr;
         }
       }
@@ -624,24 +680,35 @@
       <div class="container">
         <div class="nav">
           <a class="brand" href="#top" aria-label="Norvex home">
-            <div class="mark" aria-hidden="true"></div>
+            <div class="logoWrap" aria-hidden="true">
+              <svg class="logo" viewBox="0 0 48 48" role="img" aria-label="Norvex symbol">
+                <defs>
+                  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#1be6ff" />
+                    <stop offset="1" stop-color="#00d1ff" />
+                  </linearGradient>
+                </defs>
+                <polygon points="6,36 22,12 34,40" fill="url(#g)" />
+                <polygon points="26,18 42,8 44,36" fill="url(#g)" opacity="0.95" />
+              </svg>
+            </div>
             <div>
               <strong>Norvex</strong>
-              <span>Boutique Asset Management</span>
+              <span>Asset Management</span>
             </div>
           </a>
 
           <nav aria-label="Primary">
             <ul>
               <li><a href="#approach">Approach</a></li>
-              <li><a href="#strategies">Strategies</a></li>
-              <li><a href="#governance">Governance</a></li>
+              <li><a href="#firm">Firm</a></li>
+              <li><a href="#performance">Performance</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </nav>
 
           <a class="cta" href="#contact">
-            Request an intro
+            Get in touch
             <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -651,78 +718,49 @@
     <main id="main">
       <div id="top" class="hero">
         <div class="container">
-          <div class="heroGrid">
-            <div>
-              <div class="eyebrow">
-                <span class="dot" aria-hidden="true"></span>
-                Long-term, fundamentals-first investing
+          <div class="heroCard">
+            <div class="heroInner">
+              <div class="heroGrid">
+                <div class="portrait" aria-label="Firm portrait placeholder">
+                  <div class="ghost">
+                    <strong>Norvex Asset Management</strong>
+                    <span>
+                      One principal, no committee layers—every decision traceable to a single point of accountability.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="heroCopy">
+                  <div class="kicker">Norvex Asset Management</div>
+                  <h1>Trusted judgement,<br />held to a serious standard.</h1>
+                  <p>
+                    Fynn Schreiter leads each relationship and investment decision directly. One principal, no committee
+                    layers, every decision traceable to a single point of accountability. Norvex provides the discipline,
+                    clarity and control that serious capital deserves.
+                  </p>
+
+                  <div class="rule" role="presentation"></div>
+                  <div class="strap">Direct responsibility. Clear standards.</div>
+
+                  <div class="heroActions" aria-label="Primary actions">
+                    <a class="btnDark" href="#contact">
+                      Arrange a conversation
+                      <span aria-hidden="true">→</span>
+                    </a>
+                    <a class="btnLight" href="#firm">
+                      View firm overview
+                      <span aria-hidden="true">↘</span>
+                    </a>
+                  </div>
+
+                  <div class="heroTabs" aria-label="Highlights">
+                    <div class="tab">Personal Accountability</div>
+                    <div class="tab">Measured Decisions</div>
+                    <div class="tab">Built for Continuity</div>
+                  </div>
+                </div>
               </div>
-
-              <h1>
-                Patient compounding,
-                <span style="color: rgba(255, 255, 255, 0.75)">built to endure.</span>
-              </h1>
-
-              <p class="lead">
-                Norvex is a boutique asset manager focused on high-conviction portfolios, disciplined risk
-                management, and clear client communication—designed for investors who value process over
-                noise.
-              </p>
-
-              <div class="heroActions">
-                <a class="cta" href="#strategies">
-                  Explore strategies
-                  <span aria-hidden="true">→</span>
-                </a>
-                <a class="secondary" href="#approach">
-                  Our approach
-                  <span aria-hidden="true">↘</span>
-                </a>
-              </div>
-
-              <p class="fineprint">
-                This page is informational only and does not constitute an offer, solicitation, or investment
-                advice. Past performance does not guarantee future results.
-              </p>
             </div>
-
-            <aside class="card" aria-label="Highlights">
-              <div class="cardInner">
-                <div class="kpis">
-                  <div class="kpi">
-                    <strong>Concentrated by design</strong>
-                    <span>Focus on a curated set of businesses we can underwrite deeply.</span>
-                  </div>
-                  <div class="kpi">
-                    <strong>Risk is a process</strong>
-                    <span>Position sizing, drawdown awareness, and scenario planning.</span>
-                  </div>
-                  <div class="kpi">
-                    <strong>Aligned incentives</strong>
-                    <span>We win by compounding alongside clients over time.</span>
-                  </div>
-                  <div class="kpi">
-                    <strong>Transparent cadence</strong>
-                    <span>Clear letters, clear attribution, clear decision-making.</span>
-                  </div>
-                </div>
-
-                <div class="mini">
-                  <div class="pill">
-                    <span>Typical holding period</span>
-                    <code>multi‑year</code>
-                  </div>
-                  <div class="pill">
-                    <span>Research lens</span>
-                    <code>quality × price × durability</code>
-                  </div>
-                  <div class="pill">
-                    <span>Portfolio construction</span>
-                    <code>conviction‑weighted</code>
-                  </div>
-                </div>
-              </div>
-            </aside>
           </div>
         </div>
       </div>
@@ -732,10 +770,7 @@
           <div class="sectionHead">
             <div>
               <h2>Approach</h2>
-              <p>
-                We aim to own durable businesses at sensible prices, with a repeatable research process and a
-                portfolio construction discipline that respects uncertainty.
-              </p>
+              <p>A focused approach to modern markets.</p>
             </div>
           </div>
 
@@ -752,10 +787,10 @@
                   />
                 </svg>
               </div>
-              <h3>Quality underwriting</h3>
+              <h3>Market structure & price behavior</h3>
               <p>
-                We build conviction through business model clarity, unit economics, competitive moats, and
-                management incentives.
+                Norvex Asset Management follows a discretionary trading approach focused on crypto derivatives in highly
+                liquid markets. Investment decisions are guided by market structure and price behavior.
               </p>
             </article>
 
@@ -778,10 +813,10 @@
                   />
                 </svg>
               </div>
-              <h3>Valuation with humility</h3>
+              <h3>Continuously evaluated data</h3>
               <p>
-                We stress test assumptions, compare against plausible alternatives, and require a margin of
-                safety.
+                Decisions are informed by continuously evaluated data. Each position reflects a deliberate assessment of
+                risk, timing and asymmetric opportunity.
               </p>
             </article>
 
@@ -804,35 +839,32 @@
                   />
                 </svg>
               </div>
-              <h3>Risk discipline</h3>
+              <h3>Selective engagement</h3>
               <p>
-                We size positions based on conviction and downside, manage correlation, and avoid forced
-                selling via liquidity awareness.
+                The objective is not constant activity, but selective engagement. Norvex enters markets only when
+                conditions align with a clear edge.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="strategies" aria-label="Strategies">
+      <section id="firm" aria-label="Firm">
         <div class="container">
           <div class="sectionHead">
             <div>
-              <h2>Strategies</h2>
-              <p>
-                Clear, focused mandates—structured for real-world implementation and communication. We can
-                tailor guidelines based on investor objectives and constraints.
-              </p>
+              <h2>Firm</h2>
+              <p>Discretion, grounded in structure.</p>
             </div>
           </div>
 
           <div class="split">
             <div class="panel">
               <div class="pad">
-                <h3 style="margin: 0 0 6px; font-size: 16px; letter-spacing: -0.02em">Core Equity</h3>
+                <h3 style="margin: 0 0 6px; font-size: 16px; letter-spacing: -0.02em">Continuity by design</h3>
                 <p style="margin: 0; color: rgba(255, 255, 255, 0.72); line-height: 1.6; font-size: 14px">
-                  A concentrated, fundamentals-driven portfolio of high-quality businesses, intended for
-                  multi-year holding periods.
+                  Norvex is led personally, but structured for continuity under clear legal arrangements. Defined deputy
+                  roles ensure the structure remains operable when required.
                 </p>
                 <ul class="list">
                   <li class="li">
@@ -847,7 +879,7 @@
                         />
                       </svg>
                     </div>
-                    <p>Conviction-weighted allocation, with explicit downside and scenario work.</p>
+                    <p>Clear oversight and enforceability, designed for client protection.</p>
                   </li>
                   <li class="li">
                     <div class="tick" aria-hidden="true">
@@ -861,7 +893,7 @@
                         />
                       </svg>
                     </div>
-                    <p>Emphasis on durability, capital allocation, and incentive alignment.</p>
+                    <p>Internal guardrails support disciplined liquidity management and orderly withdrawals.</p>
                   </li>
                   <li class="li">
                     <div class="tick" aria-hidden="true">
@@ -875,7 +907,7 @@
                         />
                       </svg>
                     </div>
-                    <p>Regular letters covering decisions, attribution, and lessons learned.</p>
+                    <p>Operability planning with defined deputy roles when required.</p>
                   </li>
                 </ul>
               </div>
@@ -883,10 +915,10 @@
 
             <div class="panel">
               <div class="pad">
-                <h3 style="margin: 0 0 6px; font-size: 16px; letter-spacing: -0.02em">Absolute Return Mindset</h3>
+                <h3 style="margin: 0 0 6px; font-size: 16px; letter-spacing: -0.02em">Structure and standards</h3>
                 <p style="margin: 0; color: rgba(255, 255, 255, 0.72); line-height: 1.6; font-size: 14px">
-                  A flexible framework centered on capital preservation and opportunity capture, with
-                  thoughtful exposure and liquidity planning.
+                  The legal and notarial setup is designed to support proper oversight, enforceability and client
+                  protection.
                 </p>
                 <ul class="list">
                   <li class="li">
@@ -901,7 +933,7 @@
                         />
                       </svg>
                     </div>
-                    <p>Exposure management to reduce vulnerability in fragile regimes.</p>
+                    <p>Operational discipline supports consistent execution under real-world constraints.</p>
                   </li>
                   <li class="li">
                     <div class="tick" aria-hidden="true">
@@ -915,7 +947,7 @@
                         />
                       </svg>
                     </div>
-                    <p>Opportunistic adds during volatility, guided by pre-defined research work.</p>
+                    <p>Designed for continuity while maintaining personal accountability.</p>
                   </li>
                   <li class="li">
                     <div class="tick" aria-hidden="true">
@@ -929,7 +961,7 @@
                         />
                       </svg>
                     </div>
-                    <p>Transparent guardrails: concentration, liquidity, and drawdown sensitivity.</p>
+                    <p>Guardrails support disciplined liquidity management and orderly withdrawals.</p>
                   </li>
                 </ul>
               </div>
@@ -938,15 +970,12 @@
         </div>
       </section>
 
-      <section id="governance" aria-label="Governance">
+      <section id="performance" aria-label="Performance">
         <div class="container">
           <div class="sectionHead">
             <div>
-              <h2>Governance & transparency</h2>
-              <p>
-                Boutique doesn’t mean opaque. We prioritize clarity, measured decision-making, and strong
-                operational discipline.
-              </p>
+              <h2>Performance</h2>
+              <p>Discipline, measured in results.</p>
             </div>
           </div>
 
@@ -962,8 +991,8 @@
                   />
                 </svg>
               </div>
-              <h3>Decision journal</h3>
-              <p>We document theses, risk cases, sizing rationale, and what would change our minds.</p>
+              <h3>€12M</h3>
+              <p>Assets under management</p>
             </article>
 
             <article class="tile">
@@ -977,8 +1006,8 @@
                   />
                 </svg>
               </div>
-              <h3>Clear reporting</h3>
-              <p>Simple, consistent updates: what we did, why we did it, and what we’re watching next.</p>
+              <h3>11%</h3>
+              <p>Monthly return (avg.)</p>
             </article>
 
             <article class="tile">
@@ -993,9 +1022,22 @@
                   />
                 </svg>
               </div>
-              <h3>Operational rigor</h3>
-              <p>We keep systems clean: data hygiene, access controls, and disciplined execution workflows.</p>
+              <h3>3.2</h3>
+              <p>Avg. trades per day</p>
             </article>
+          </div>
+
+          <div style="margin-top: 14px" class="panel">
+            <div class="pad" style="display: grid; gap: 10px">
+              <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between">
+                <div style="font-size: 14px; color: rgba(255,255,255,0.80)">
+                  <strong style="color: rgba(255,255,255,0.92)">68.56%</strong> trade win rate
+                </div>
+                <div style="font-size: 12.5px; color: rgba(255,255,255,0.60)">
+                  Illustrative figures · past performance is not indicative of future results.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1005,42 +1047,56 @@
           <div class="sectionHead">
             <div>
               <h2>Contact</h2>
-              <p>
-                Want to learn more? Send a short note. If you already have constraints (liquidity needs,
-                benchmark, tax considerations), include them—we’ll respond with next steps.
-              </p>
+              <p>Get in touch</p>
             </div>
           </div>
 
           <div class="split">
             <div class="panel">
               <div class="pad">
-                <h3 style="margin: 0 0 10px; font-size: 16px; letter-spacing: -0.02em">Send a message</h3>
+                <p style="margin: 0 0 10px; color: rgba(255, 255, 255, 0.72); line-height: 1.6; font-size: 14px">
+                  For inquiries regarding investment mandates or general questions, please use the form below.
+                </p>
 
-                <form id="contactForm">
+                <form id="contactForm" aria-label="Contact form">
                   <div class="row2">
                     <label>
-                      Name
-                      <input name="name" autocomplete="name" placeholder="Your name" required />
+                      Name *
+                      <input name="name" autocomplete="name" placeholder="Full name" required />
                     </label>
                     <label>
-                      Email
-                      <input name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
+                      Email *
+                      <input name="email" type="email" autocomplete="email" placeholder="email@example.com" required />
                     </label>
                   </div>
 
                   <label>
-                    What are you looking for?
-                    <textarea
-                      name="message"
-                      placeholder="Tell us what matters: horizon, objectives, constraints, and what success looks like."
-                      required
-                    ></textarea>
+                    Phone (optional)
+                    <div class="rowPhone">
+                      <select name="country" aria-label="Country">
+                        <option value="DE">🇩🇪 +49</option>
+                        <option value="CY">🇨🇾 +357</option>
+                        <option value="US">🇺🇸 +1</option>
+                        <option value="GB">🇬🇧 +44</option>
+                        <option value="AE">🇦🇪 +971</option>
+                      </select>
+                      <input name="phone" inputmode="tel" autocomplete="tel" placeholder="Phone number" />
+                    </div>
                   </label>
+
+                  <label>
+                    Message
+                    <textarea name="message" placeholder="Your message" required></textarea>
+                  </label>
+
+                  <p class="privacy">
+                    By submitting this form, your information will be processed to respond to your inquiry and manage a
+                    potential business relationship. See our <a href="#privacy" style="text-decoration: underline">Privacy Policy</a>.
+                  </p>
 
                   <div class="submitRow">
                     <button type="submit" class="cta" style="cursor: pointer">
-                      Draft email
+                      Send Message
                       <span aria-hidden="true">↗</span>
                     </button>
                     <div class="note">
@@ -1054,7 +1110,9 @@
 
             <div class="panel">
               <div class="pad">
-                <h3 style="margin: 0 0 10px; font-size: 16px; letter-spacing: -0.02em">Quick details</h3>
+                <h3 style="margin: 0 0 10px; font-size: 16px; letter-spacing: -0.02em">
+                  Disciplined capital management; built on conviction, clarity and control.
+                </h3>
                 <ul class="list" style="margin-top: 0">
                   <li class="li">
                     <div class="tick" aria-hidden="true" style="background: rgba(177, 255, 139, 0.10)">
@@ -1069,8 +1127,10 @@
                       </svg>
                     </div>
                     <p>
-                      <strong style="color: rgba(255, 255, 255, 0.92)">Location:</strong>
-                      Remote-first, global coverage.
+                      <strong style="color: rgba(255, 255, 255, 0.92)">Company</strong><br />
+                      Norvex Asset Management Ltd.<br />
+                      Arch. Makarios III Avenue 205<br />
+                      Limassol 3030, Cyprus
                     </p>
                   </li>
                   <li class="li">
@@ -1086,8 +1146,9 @@
                       </svg>
                     </div>
                     <p>
-                      <strong style="color: rgba(255, 255, 255, 0.92)">Cadence:</strong>
-                      Letters and calls as agreed with clients.
+                      <strong style="color: rgba(255, 255, 255, 0.92)">Legal</strong><br />
+                      <a href="#legal" style="text-decoration: underline">Legal Notice</a><br />
+                      <a href="#privacy" style="text-decoration: underline">Privacy Policy</a>
                     </p>
                   </li>
                   <li class="li">
@@ -1103,19 +1164,19 @@
                       </svg>
                     </div>
                     <p>
-                      <strong style="color: rgba(255, 255, 255, 0.92)">What we optimize for:</strong>
-                      Long-term outcomes, not quarterly optics.
+                      <strong style="color: rgba(255, 255, 255, 0.92)">Contact</strong><br />
+                      <a href="mailto:info@norvexam.com" style="text-decoration: underline">info@norvexam.com</a>
                     </p>
                   </li>
                 </ul>
 
                 <div style="margin-top: 12px" class="pill">
                   <span>Email</span>
-                  <code id="emailText">hello@norvexam.com</code>
+                  <code id="emailText">info@norvexam.com</code>
                 </div>
 
                 <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
-                  <a class="secondary" href="mailto:hello@norvexam.com?subject=Norvex%20—%20Intro%20request">
+                  <a class="secondary" href="mailto:info@norvexam.com?subject=Norvex%20—%20Inquiry">
                     Email directly
                     <span aria-hidden="true">→</span>
                   </a>
@@ -1126,8 +1187,64 @@
                 </div>
 
                 <p class="fineprint" style="margin-bottom: 0">
-                  Replace <code style="font-size: 12px">hello@norvexam.com</code> with your preferred inbox.
+                  We respond to serious inquiries promptly, with clarity on next steps.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="legal" aria-label="Legal notice">
+        <div class="container">
+          <div class="sectionHead">
+            <div>
+              <h2>Legal Notice</h2>
+              <p>
+                This page provides general information about the firm. Nothing here constitutes investment advice, an
+                offer, or solicitation. Investing involves risk, including the possible loss of principal.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="pad" style="display: grid; gap: 10px">
+              <div style="color: rgba(255,255,255,0.72); line-height: 1.7; font-size: 14px">
+                Norvex Asset Management Ltd.<br />
+                Arch. Makarios III Avenue 205<br />
+                Limassol 3030, Cyprus
+              </div>
+              <div style="color: rgba(255,255,255,0.62); line-height: 1.7; font-size: 12.5px">
+                Illustrative figures shown on this site are for informational purposes only. Past performance is not
+                indicative of future results.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy" aria-label="Privacy policy">
+        <div class="container">
+          <div class="sectionHead">
+            <div>
+              <h2>Privacy Policy</h2>
+              <p>
+                This static page does not store your form submissions. When you use the contact form, it drafts an email
+                in your local email client.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="pad" style="display: grid; gap: 10px">
+              <div style="color: rgba(255,255,255,0.72); line-height: 1.7; font-size: 14px">
+                - <strong style="color: rgba(255,255,255,0.92)">Data you provide</strong>: name, email, optional phone,
+                and message content.
+                <br />
+                - <strong style="color: rgba(255,255,255,0.92)">How it’s processed</strong>: used to respond to your
+                inquiry and manage a potential business relationship.
+                <br />
+                - <strong style="color: rgba(255,255,255,0.92)">Contact</strong>: <a href="mailto:info@norvexam.com" style="text-decoration: underline">info@norvexam.com</a>
               </div>
             </div>
           </div>
@@ -1140,25 +1257,39 @@
         <div class="foot">
           <div class="footTop">
             <div class="brand" style="min-width: unset">
-              <div class="mark" aria-hidden="true" style="width: 34px; height: 34px; border-radius: 12px"></div>
+              <div class="logoWrap" aria-hidden="true" style="width: 34px; height: 34px; border-radius: 12px">
+                <svg class="logo" viewBox="0 0 48 48" role="img" aria-label="Norvex symbol">
+                  <defs>
+                    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#1be6ff" />
+                      <stop offset="1" stop-color="#00d1ff" />
+                    </linearGradient>
+                  </defs>
+                  <polygon points="6,36 22,12 34,40" fill="url(#g2)" />
+                  <polygon points="26,18 42,8 44,36" fill="url(#g2)" opacity="0.95" />
+                </svg>
+              </div>
               <div>
                 <strong>Norvex</strong>
-                <span>Boutique Asset Management</span>
+                <span>Asset Management</span>
               </div>
             </div>
 
             <div class="mutedLinks" aria-label="Footer links">
               <a href="#approach">Approach</a>
-              <a href="#strategies">Strategies</a>
-              <a href="#governance">Governance</a>
+              <a href="#firm">Firm</a>
+              <a href="#performance">Performance</a>
               <a href="#contact">Contact</a>
+              <a href="#legal">Legal Notice</a>
+              <a href="#privacy">Privacy Policy</a>
             </div>
           </div>
 
           <div class="legal">
             © <span id="year"></span> Norvex. All rights reserved.<br />
-            This website is provided for informational purposes only and does not constitute investment advice,
-            an offer, or solicitation. Investing involves risk, including the possible loss of principal.
+            Illustrative figures · past performance is not indicative of future results.<br />
+            This website is provided for informational purposes only and does not constitute investment advice, an offer,
+            or solicitation. Investing involves risk, including the possible loss of principal.
           </div>
         </div>
       </div>
@@ -1174,13 +1305,16 @@
         const data = new FormData(form);
         const name = String(data.get("name") ?? "").trim();
         const email = String(data.get("email") ?? "").trim();
+        const country = String(data.get("country") ?? "").trim();
+        const phone = String(data.get("phone") ?? "").trim();
         const message = String(data.get("message") ?? "").trim();
 
-        const to = "hello@norvexam.com";
-        const subject = `Norvex — Intro request${name ? ` (${name})` : ""}`;
+        const to = "info@norvexam.com";
+        const subject = `Norvex — Inquiry${name ? ` (${name})` : ""}`;
         const body = [
           name ? `Name: ${name}` : null,
           email ? `Email: ${email}` : null,
+          phone ? `Phone: ${country} ${phone}` : null,
           "",
           message,
           "",
