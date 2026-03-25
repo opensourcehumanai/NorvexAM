@@ -19,6 +19,7 @@
     />
 
     <style>
+      /* SWISS PRIVATE BANK – FINAL REFINEMENT – based on PDF screenshots */
       :root {
         --page: #faf9f6;
         --page2: #f8f5f0;
@@ -41,6 +42,8 @@
         --radius-md: 18px;
         --radius-lg: 28px;
         --max: 1140px;
+        --section-pad-desktop: 172px;
+        --section-pad-mobile: 140px;
 
         color-scheme: light;
       }
@@ -59,8 +62,8 @@
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
         letter-spacing: -0.01em;
         color: var(--ink);
-        font-size: 18px;
-        line-height: 1.8;
+        font-size: 19px;
+        line-height: 1.9;
         background: var(--page);
         overflow-x: hidden;
       }
@@ -102,6 +105,7 @@
         -webkit-backdrop-filter: blur(8px);
         background: rgba(250, 249, 246, 0.95);
         border-bottom: 1px solid var(--border);
+        box-shadow: 0 1px 0 rgba(10, 37, 64, 0.08);
       }
 
       .nav {
@@ -181,7 +185,7 @@
         border: 1px solid var(--border);
         background: #fff;
         color: var(--ink);
-        border-radius: 10px;
+        border-radius: 4px;
         padding: 10px 14px;
         font-size: 16px;
         font-weight: 500;
@@ -190,7 +194,7 @@
       nav a:hover {
         border-color: var(--accent);
         color: var(--ink);
-        transform: translateY(-1px);
+        transform: none;
       }
 
       .cta {
@@ -199,7 +203,7 @@
         justify-content: center;
         gap: 10px;
         padding: 10px 16px;
-        border-radius: 14px;
+        border-radius: 4px;
         border: 1px solid var(--accent);
         background: var(--accent);
         box-shadow: none;
@@ -207,14 +211,13 @@
         font-weight: 600;
         font-size: 16px;
         letter-spacing: -0.01em;
-        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
       }
 
       .cta:hover {
-        transform: translateY(-1px);
         border-color: #c9a66b;
         background: #c9a66b;
-        box-shadow: var(--shadow);
+        box-shadow: none;
       }
 
       .cta--on-light {
@@ -239,21 +242,21 @@
 
       /* Hero */
       .hero {
-        padding: 56px 0 56px;
+        padding: 188px 0;
       }
 
       .heroCard {
-        border-radius: clamp(24px, 3vw, 40px);
-        border: 1px solid var(--border);
-        background: var(--card);
-        box-shadow: var(--shadow-lg);
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
         overflow: hidden;
       }
 
       .heroInner {
-        background: var(--card);
+        background: transparent;
         color: var(--ink);
-        padding: clamp(28px, 3vw, 44px);
+        padding: 0;
       }
 
       .heroGrid {
@@ -264,14 +267,14 @@
       }
 
       .portrait {
-        border-radius: clamp(20px, 2.5vw, 32px);
-        border: 1px solid var(--border);
+        border-radius: 0;
+        border: none;
         background: #0a2540;
         position: relative;
         overflow: hidden;
         min-height: 420px;
         isolation: isolate;
-        box-shadow: 0 18px 40px rgba(6, 13, 28, 0.18);
+        box-shadow: none;
       }
 
       .portraitBtn {
@@ -320,9 +323,9 @@
         position: absolute;
         inset: auto 14px 14px 14px;
         max-width: min(88%, 420px);
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        background: rgba(10, 37, 64, 0.75);
+        border-radius: 0;
+        border: none;
+        background: rgba(10, 37, 64, 0.82);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         padding: 12px 12px 10px;
@@ -361,7 +364,7 @@
       .heroCopy h1 {
         margin: 12px 0 12px;
         font-weight: 600;
-        font-size: clamp(3rem, 6vw, 4rem);
+        font-size: clamp(3rem, 5.2vw, 4.6rem);
         line-height: 1.1;
         letter-spacing: -0.02em;
       }
@@ -370,8 +373,8 @@
         margin: 0;
         color: var(--muted);
         font-size: 20px;
-        line-height: 1.8;
-        max-width: 48rem;
+        line-height: 1.9;
+        max-width: 60ch;
       }
 
       .rule {
@@ -399,18 +402,17 @@
         justify-content: center;
         gap: 10px;
         padding: 12px 18px;
-        border-radius: var(--radius-md);
+        border-radius: 4px;
         border: 1px solid var(--accent);
         background: var(--accent);
         color: #0a2540;
         font-weight: 600;
         font-size: 16px;
-        box-shadow: var(--shadow);
-        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+        box-shadow: none;
+        transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
       }
 
       .btnDark:hover {
-        transform: translateY(-1px);
         border-color: #c9a66b;
         background: #c9a66b;
       }
@@ -421,42 +423,39 @@
         justify-content: center;
         gap: 10px;
         padding: 12px 18px;
-        border-radius: var(--radius-md);
-        border: 1px solid var(--border);
+        border-radius: 4px;
+        border: 1px solid #0a2540;
         background: transparent;
         color: var(--ink);
         font-weight: 600;
         font-size: 16px;
-        box-shadow: var(--shadow);
-        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+        box-shadow: none;
+        transition: border-color 180ms ease, color 180ms ease;
       }
 
       .btnLight:hover {
-        transform: translateY(-1px);
-        border-color: var(--accent);
+        border-color: #0a2540;
       }
 
-      .heroTabs {
-        margin-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .tab {
-        border-radius: var(--radius-md);
-        border: 1px solid var(--border);
-        background: #f8f5f0;
-        padding: 12px 14px;
+      .trustLine {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        align-items: center;
         font-size: 16px;
-        font-weight: 500;
-        color: var(--muted);
-        line-height: 1.35;
+        color: var(--muted2);
+      }
+
+      .trustLine .sep {
+        width: 1px;
+        height: 16px;
+        background: var(--accent);
       }
 
       /* Sections */
       section {
-        padding: 60px 0;
+        padding: var(--section-pad-desktop) 0;
       }
 
       section + section {
@@ -469,8 +468,8 @@
 
       .sectionHead h2 {
         margin: 0 0 6px;
-        font-size: clamp(2rem, 3.2vw, 2.8rem);
-        font-weight: 600;
+        font-size: clamp(3rem, 4.6vw, 3.6rem);
+        font-weight: 400;
         letter-spacing: -0.02em;
         color: var(--text-light);
         font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -479,31 +478,31 @@
       .sectionHead p {
         margin: 0;
         color: var(--text-light-2);
-        max-width: 40rem;
-        line-height: 1.8;
-        font-size: 18px;
+        max-width: 56ch;
+        line-height: 1.9;
+        font-size: 20px;
       }
 
       .grid3 {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
+        gap: 34px;
       }
 
       .tile {
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border);
-        background: var(--card);
-        box-shadow: var(--shadow);
-        padding: 26px;
-        min-height: 190px;
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        min-height: 0;
         color: var(--ink);
       }
 
       .tile h3 {
-        margin: 14px 0 8px;
+        margin: 0 0 12px;
         font-size: 1.2rem;
-        font-weight: 800;
+        font-weight: 600;
         letter-spacing: -0.02em;
         color: var(--ink);
       }
@@ -513,12 +512,13 @@
         color: var(--muted);
         line-height: 1.8;
         font-size: 18px;
+        max-width: 34ch;
       }
 
       .metric-value {
-        margin: 12px 0 6px;
-        font-size: 1.85rem;
-        font-weight: 600;
+        margin: 0 0 8px;
+        font-size: clamp(4.5rem, 7vw, 5rem);
+        font-weight: 400;
         letter-spacing: -0.03em;
         color: var(--ink);
         font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -529,26 +529,41 @@
       .metric-label {
         margin: 0;
         font-size: 16px;
-        font-weight: 650;
-        letter-spacing: 0.06em;
+        font-weight: 500;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
       }
 
-      .icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 999px;
-        border: none;
-        background: var(--accent-dim);
-        color: var(--accent);
-        display: grid;
-        place-items: center;
+      #approach .tile + .tile,
+      #performance .tile + .tile {
+        border-left: 1px solid rgba(201, 166, 107, 0.45);
+        padding-left: 28px;
       }
 
-      .icon svg {
-        width: 20px;
-        height: 20px;
+      #firm .split,
+      #insights .split,
+      #contact .split {
+        gap: 54px;
+      }
+
+      #insights .split {
+        grid-template-columns: 1fr;
+      }
+
+      #insights .panel + .panel {
+        border-top: 1px solid rgba(201, 166, 107, 0.45);
+        padding-top: 40px;
+      }
+
+      #performance .grid3 {
+        align-items: end;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .icon {
+        display: none !important;
       }
 
       .split {
@@ -559,22 +574,23 @@
       }
 
       .panel {
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border);
-        background: var(--card);
-        box-shadow: var(--shadow);
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
         overflow: hidden;
       }
 
       .panel .pad {
-        padding: 28px;
+        padding: 0;
       }
 
       .prose {
         margin: 0;
         color: var(--muted);
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.85;
+        max-width: 52ch;
       }
 
       .prose p + p {
@@ -591,29 +607,17 @@
 
       .li {
         display: grid;
-        grid-template-columns: 40px 1fr;
+        grid-template-columns: 1fr;
         gap: 14px;
         align-items: start;
-        padding: 14px 16px;
-        border-radius: var(--radius-md);
-        border: 1px solid var(--border);
-        background: var(--card-2);
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        background: transparent;
       }
 
       .li .tick {
-        width: 40px;
-        height: 40px;
-        border-radius: 999px;
-        display: grid;
-        place-items: center;
-        border: none;
-        background: var(--accent-dim);
-        color: var(--accent);
-      }
-
-      .li .tick svg {
-        width: 14px;
-        height: 14px;
+        display: none !important;
       }
 
       .li p {
@@ -628,17 +632,19 @@
       }
 
       .perf-bar {
-        margin-top: 20px;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border);
-        background: var(--card);
-        box-shadow: var(--shadow);
-        padding: 18px 24px;
+        margin-top: 44px;
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        flex-wrap: nowrap;
         gap: 14px;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        text-align: center;
         color: var(--ink);
       }
 
@@ -651,10 +657,10 @@
       }
 
       .perf-bar .disclaimer {
-        font-size: 16px;
+        font-size: 13px;
         color: var(--muted2);
-        max-width: 26rem;
-        line-height: 1.5;
+        max-width: none;
+        line-height: 1.7;
       }
 
       .pill {
@@ -724,7 +730,7 @@
         border-radius: 24px;
         background: #fff;
         border: 1px solid var(--border);
-        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+        box-shadow: none;
         overflow: hidden;
       }
 
@@ -748,7 +754,7 @@
         right: 12px;
         width: 36px;
         height: 36px;
-        border-radius: 999px;
+        border-radius: 4px;
         border: 1px solid rgba(255, 255, 255, 0.32);
         background: rgba(20, 20, 20, 0.45);
         color: #fff;
@@ -781,12 +787,13 @@
       input,
       textarea {
         width: 100%;
-        border-radius: var(--radius-sm);
+        border-radius: 0;
         border: 1px solid var(--border);
         background: #fff;
-        padding: 12px 14px;
+        min-height: 64px;
+        padding: 14px 16px;
         color: var(--ink);
-        font-size: 16px;
+        font-size: 19px;
         line-height: 1.45;
       }
 
@@ -797,7 +804,7 @@
 
       textarea {
         resize: vertical;
-        min-height: 110px;
+        min-height: 180px;
       }
 
       .rowPhone {
@@ -808,12 +815,13 @@
 
       select {
         width: 100%;
-        border-radius: var(--radius-sm);
+        border-radius: 0;
         border: 1px solid var(--border);
         background: #fff;
-        padding: 12px 14px;
+        min-height: 64px;
+        padding: 14px 16px;
         color: var(--ink);
-        font-size: 16px;
+        font-size: 19px;
       }
 
       .privacy {
@@ -839,9 +847,9 @@
       }
 
       footer {
-        padding: 36px 0 48px;
+        padding: 72px 0 72px;
         border-top: 1px solid var(--border);
-        background: var(--card-2);
+        background: transparent;
       }
 
       footer .brand strong,
@@ -926,8 +934,11 @@
         .portrait {
           min-height: 320px;
         }
-        .heroTabs {
-          grid-template-columns: 1fr;
+        .hero {
+          padding: 150px 0;
+        }
+        section {
+          padding: var(--section-pad-mobile) 0;
         }
         .brand {
           min-width: unset;
@@ -937,6 +948,13 @@
         }
         .grid3 {
           grid-template-columns: 1fr;
+        }
+        #approach .tile + .tile,
+        #performance .tile + .tile {
+          border-left: none;
+          border-top: 1px solid rgba(201, 166, 107, 0.45);
+          padding-left: 0;
+          padding-top: 24px;
         }
         .split {
           grid-template-columns: 1fr;
@@ -987,7 +1005,6 @@
 
           <a class="cta" href="mailto:info@norvexam.com">
             Request Access
-            <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -1037,23 +1054,18 @@
                   <div class="heroActions" aria-label="Primary actions">
                     <a class="btnDark" href="#performance">
                       Learn About the Fund
-                      <span aria-hidden="true">→</span>
                     </a>
                     <a class="btnLight" href="mailto:info@norvexam.com">
                       Speak with the Principal
-                      <span aria-hidden="true">↘</span>
                     </a>
                   </div>
 
-                  <div class="heroTabs" aria-label="Highlights">
-                    <div class="tab">Personal Accountability</div>
-                    <div class="tab">Measured Decisions</div>
-                    <div class="tab">Built for Continuity</div>
-                  </div>
-                  <div class="heroTabs" aria-label="Trust signals">
-                    <div class="tab">Regulated in Cyprus</div>
-                    <div class="tab">Institutional-Grade Infrastructure</div>
-                    <div class="tab">Risk-Controlled Derivatives Execution</div>
+                  <div class="trustLine" aria-label="Trust signals">
+                    <span>Regulated in Cyprus</span>
+                    <span class="sep" aria-hidden="true"></span>
+                    <span>Institutional-Grade Infrastructure</span>
+                    <span class="sep" aria-hidden="true"></span>
+                    <span>Risk-Controlled Derivatives Execution</span>
                   </div>
                 </div>
               </div>
@@ -1300,7 +1312,6 @@
                   <div class="submitRow">
                     <button type="submit" class="cta cta--on-light" style="cursor: pointer">
                       Send Message
-                      <span aria-hidden="true">↗</span>
                     </button>
                   </div>
                 </form>
@@ -1312,71 +1323,30 @@
                 <h3 style="margin: 0 0 18px; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink)">
                   Disciplined capital management; built on conviction, clarity and control.
                 </h3>
-                <ul class="list" style="margin-top: 0">
-                  <li class="li">
-                    <div class="tick" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M20 6L9 17l-5-5"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <p>
-                      <strong style="color: var(--ink)">Company</strong><br />
-                      Norvex Asset Management Ltd.<br />
-                      Arch. Makarios III Avenue 205<br />
-                      Limassol 3030, Cyprus
-                    </p>
-                  </li>
-                  <li class="li">
-                    <div class="tick" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M20 6L9 17l-5-5"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <p>
-                      <strong style="color: var(--ink)">Legal</strong><br />
-                      <a href="#legal" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px">Legal Notice</a><br />
-                      <a href="#privacy" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px">Privacy Policy</a>
-                    </p>
-                  </li>
-                  <li class="li">
-                    <div class="tick" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M20 6L9 17l-5-5"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <p>
-                      <strong style="color: var(--ink)">Contact</strong><br />
-                      <a href="mailto:info@norvexam.com" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px">info@norvexam.com</a>
-                    </p>
-                  </li>
-                </ul>
+                <div class="prose" style="margin-top: 0">
+                  <p style="margin: 0 0 22px">
+                    <strong style="color: var(--ink)">Company</strong><br />
+                    Norvex Asset Management Ltd.<br />
+                    Arch. Makarios III Avenue 205<br />
+                    Limassol 3030, Cyprus
+                  </p>
+                  <p style="margin: 0 0 22px">
+                    <strong style="color: var(--ink)">Legal</strong><br />
+                    <a href="#legal" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px">Legal Notice</a><br />
+                    <a href="#privacy" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px">Privacy Policy</a>
+                  </p>
+                  <p style="margin: 0">
+                    <strong style="color: var(--ink)">Contact</strong><br />
+                    <a href="mailto:info@norvexam.com" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px">info@norvexam.com</a>
+                  </p>
+                </div>
 
                 <div style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap">
                   <a class="secondary" href="mailto:info@norvexam.com?subject=Norvex%20—%20Inquiry">
                     Email directly
-                    <span aria-hidden="true">→</span>
                   </a>
                   <a class="secondary" href="#top">
                     Back to top
-                    <span aria-hidden="true">↑</span>
                   </a>
                 </div>
               </div>
