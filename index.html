@@ -1365,10 +1365,8 @@
       }
 
       footer {
-        padding: 80px 0;
-        border-top: 1px solid transparent;
-        border-image: linear-gradient(90deg, transparent, rgba(198, 168, 90, 0.45), transparent) 1;
-        background: #0f2a3f;
+        padding: 72px 0 84px;
+        background: var(--page);
       }
 
       footer .brand strong,
@@ -1381,13 +1379,19 @@
       }
 
       footer .logoWrap {
-        border-color: var(--border);
-        background: #fff;
+        border: 1px solid rgba(238, 243, 248, 0.24);
+        border-radius: 10px;
+        background: transparent;
       }
 
       .foot {
         display: grid;
         gap: 12px;
+        background: #0f2a3f;
+        border-top: 1px solid var(--accent);
+        border-radius: 8px;
+        padding: 28px 24px;
+        box-shadow: 0 16px 32px rgba(15, 42, 63, 0.16);
       }
 
       .footTop {
@@ -1527,6 +1531,9 @@
         }
         .footTop {
           grid-template-columns: 1fr;
+        }
+        .foot {
+          padding: 22px 18px;
         }
         #approach .container::after {
           opacity: 0.35;
