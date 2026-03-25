@@ -209,8 +209,9 @@
         border-radius: 0;
         border: none;
         color: rgba(255, 255, 255, 0.92);
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
+        letter-spacing: 0.03em;
         transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
       }
 
@@ -253,11 +254,11 @@
       nav {
         position: absolute;
         top: calc(100% + 1px);
-        left: 0;
-        width: 100%;
-        padding: 14px 20px 18px;
+        right: 0;
+        width: min(340px, calc(100vw - 40px));
+        padding: 16px 20px 20px;
         background: #0a2540;
-        border-top: 1px solid rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.16);
         display: none;
       }
 
@@ -528,6 +529,7 @@
         color: var(--muted2);
         letter-spacing: 0.04em;
         line-height: 1.9;
+        opacity: 0.94;
       }
 
       /* Sections */
@@ -536,7 +538,7 @@
       }
 
       section + section {
-        border-top: 1px solid rgba(201, 166, 107, 0.35);
+        border-top: 1px solid rgba(201, 166, 107, 0.24);
       }
 
       #approach .container {
@@ -605,8 +607,8 @@
 
       .tile h3 {
         margin: 0 0 12px;
-        font-size: 1.2rem;
-        font-weight: 600;
+        font-size: 1.12rem;
+        font-weight: 500;
         letter-spacing: -0.02em;
         color: var(--ink);
       }
@@ -715,8 +717,8 @@
         margin: 0;
         color: var(--muted);
         font-size: 20px;
-        line-height: 1.85;
-        max-width: 52ch;
+        line-height: 1.9;
+        max-width: 50ch;
       }
 
       .prose p + p {
@@ -786,7 +788,7 @@
         font-size: 12px;
         color: var(--muted2);
         max-width: none;
-        line-height: 1.7;
+        line-height: 1.8;
         letter-spacing: 0.04em;
       }
 
@@ -1186,7 +1188,7 @@
                   </p>
 
                   <div class="rule" role="presentation"></div>
-                  <div class="strap">Direct responsibility. Enduring standards.</div>
+                  <div class="strap">Direct responsibility. Enduring stewardship.</div>
 
                   <div class="heroActions" aria-label="Primary actions">
                     <a class="btnDark" href="#contact">
@@ -1221,7 +1223,7 @@
       <section class="philosophy">
         <div class="container">
           <p class="philosophyText">
-            Capital is managed across market cycles, where discipline outweighs opportunity.
+            Capital is managed across market cycles, where discipline consistently outweighs opportunity.
           </p>
         </div>
       </section>
@@ -1321,12 +1323,12 @@
           <div class="sectionHead">
             <div>
               <h2>Performance</h2>
-              <p>Discipline, observed over time.</p>
+              <p>Discipline, observed across market cycles.</p>
             </div>
           </div>
 
           <p class="perfContext">
-            Selected indicators reflecting disciplined capital management.
+            Selected indicators presented in the context of disciplined capital management.
           </p>
 
           <div class="grid3">
@@ -1373,7 +1375,7 @@
           </div>
 
           <div class="perf-bar">
-            <div><strong>68.56%</strong> observed win ratio</div>
+            <div><strong>68.56%</strong> observed execution win ratio</div>
             <div class="disclaimer">Past performance is not indicative of future results.</div>
           </div>
         </div>
