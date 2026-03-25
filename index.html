@@ -42,8 +42,8 @@
         --radius-md: 18px;
         --radius-lg: 28px;
         --max: 1320px;
-        --section-pad-desktop: 120px;
-        --section-pad-mobile: 100px;
+        --section-pad-desktop: 136px;
+        --section-pad-mobile: 116px;
 
         color-scheme: light;
       }
@@ -63,7 +63,7 @@
         letter-spacing: -0.01em;
         color: #2a2f36;
         font-size: 19px;
-        line-height: 1.85;
+        line-height: 1.9;
         background: var(--page);
         overflow-x: hidden;
       }
@@ -107,14 +107,14 @@
         background: #0a2540;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: 0 1px 0 rgba(10, 37, 64, 0.08);
-        min-height: 88px;
+        min-height: 92px;
       }
 
       .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px 0;
+        padding: 18px 0;
         gap: 18px;
         position: relative;
       }
@@ -150,11 +150,12 @@
 
       .brand strong {
         font-size: 17px;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.035em;
         text-transform: uppercase;
         color: #fff;
         font-family: "Playfair Display", Georgia, "Times New Roman", serif;
         line-height: 1.05;
+        font-weight: 500;
       }
 
       .brand span {
@@ -207,7 +208,7 @@
         padding: 8px 0;
         border-radius: 0;
         border: none;
-        color: #fff;
+        color: rgba(255, 255, 255, 0.92);
         font-size: 16px;
         font-weight: 500;
         transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
@@ -244,9 +245,8 @@
       }
 
       nav a:hover {
-        color: #f0e7d7;
-        text-decoration: underline;
-        text-underline-offset: 4px;
+        color: #fff;
+        text-decoration: none;
         transform: none;
       }
 
@@ -434,8 +434,8 @@
         margin: 22px 0 0;
         color: var(--muted);
         font-size: 20px;
-        line-height: 1.9;
-        max-width: 560px;
+        line-height: 1.95;
+        max-width: 52ch;
       }
 
       .rule {
@@ -447,14 +447,14 @@
       .strap {
         color: var(--muted2);
         font-size: 16px;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.03em;
       }
 
       .heroActions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 32px;
+        margin-top: 40px;
       }
 
       .btnDark {
@@ -467,9 +467,9 @@
         border: 1px solid #0a2540;
         background: #0a2540;
         color: #fff;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 14px;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.04em;
         box-shadow: none;
         transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
       }
@@ -489,9 +489,9 @@
         border: 1px solid #0a2540;
         background: #fff;
         color: var(--ink);
-        font-weight: 600;
+        font-weight: 500;
         font-size: 14px;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.04em;
         box-shadow: none;
         transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
       }
@@ -502,7 +502,7 @@
       }
 
       .trustLine {
-        margin-top: 28px;
+        margin-top: 34px;
         display: flex;
         flex-wrap: wrap;
         gap: 8px 12px;
@@ -523,10 +523,11 @@
       }
 
       .institutionalLine {
-        margin-top: 14px;
+        margin-top: 18px;
         font-size: 14px;
         color: var(--muted2);
         letter-spacing: 0.04em;
+        line-height: 1.9;
       }
 
       /* Sections */
@@ -573,7 +574,7 @@
         margin: 0 0 18px;
         font-size: clamp(3rem, 4.6vw, 3.6rem);
         font-weight: 400;
-        letter-spacing: -0.02em;
+        letter-spacing: 0.01em;
         color: var(--text-light);
         font-family: "Playfair Display", Georgia, "Times New Roman", serif;
       }
@@ -581,8 +582,8 @@
       .sectionHead p {
         margin: 0;
         color: var(--text-light-2);
-        max-width: 640px;
-        line-height: 1.8;
+        max-width: 58ch;
+        line-height: 1.92;
         font-size: 20px;
       }
 
@@ -619,8 +620,8 @@
       }
 
       .metric-value {
-        margin: 0 0 8px;
-        font-size: clamp(4rem, 6vw, 4.4rem);
+        margin: 0 0 14px;
+        font-size: clamp(3.6rem, 5.2vw, 4rem);
         font-weight: 500;
         letter-spacing: -0.01em;
         color: var(--ink);
@@ -684,6 +685,7 @@
         align-items: end;
         justify-items: center;
         text-align: center;
+        gap: 52px;
       }
 
       .icon {
@@ -756,7 +758,7 @@
       }
 
       .perf-bar {
-        margin-top: 44px;
+        margin-top: 64px;
         border-radius: 0;
         border: none;
         background: transparent;
@@ -781,10 +783,11 @@
       }
 
       .perf-bar .disclaimer {
-        font-size: 13px;
+        font-size: 12px;
         color: var(--muted2);
         max-width: none;
         line-height: 1.7;
+        letter-spacing: 0.04em;
       }
 
       .pill {
@@ -1183,7 +1186,7 @@
                   </p>
 
                   <div class="rule" role="presentation"></div>
-                  <div class="strap">Direct responsibility. Clear standards.</div>
+                  <div class="strap">Direct responsibility. Enduring standards.</div>
 
                   <div class="heroActions" aria-label="Primary actions">
                     <a class="btnDark" href="#contact">
@@ -1218,7 +1221,7 @@
       <section class="philosophy">
         <div class="container">
           <p class="philosophyText">
-            Capital is managed with a long-term perspective, where discipline outweighs opportunity.
+            Capital is managed across market cycles, where discipline outweighs opportunity.
           </p>
         </div>
       </section>
@@ -1318,12 +1321,12 @@
           <div class="sectionHead">
             <div>
               <h2>Performance</h2>
-              <p>Discipline, measured in results.</p>
+              <p>Discipline, observed over time.</p>
             </div>
           </div>
 
           <p class="perfContext">
-            Select performance indicators reflecting disciplined execution.
+            Selected indicators reflecting disciplined capital management.
           </p>
 
           <div class="grid3">
@@ -1370,7 +1373,7 @@
           </div>
 
           <div class="perf-bar">
-            <div><strong>68.56%</strong> trade win rate</div>
+            <div><strong>68.56%</strong> observed win ratio</div>
             <div class="disclaimer">Past performance is not indicative of future results.</div>
           </div>
         </div>
