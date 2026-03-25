@@ -802,7 +802,7 @@
         align-items: stretch;
       }
 
-      .firmCallout {
+      .navyCallout {
         background: #0f2a3f;
         color: #eef3f8;
         border-top: 1px solid var(--accent);
@@ -810,22 +810,74 @@
         padding: 28px 24px;
         display: flex;
         align-items: center;
+        transition: transform 180ms ease, box-shadow 180ms ease;
       }
 
-      .firmCallout p {
+      .navyCallout:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(15, 42, 63, 0.22);
+      }
+
+      .navyCallout p {
         margin: 0;
         font-family: "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif;
         font-size: 1.6rem;
         line-height: 1.3;
       }
 
-      .firmCallout p::after {
+      .navyCallout p::after {
         content: "";
         display: block;
         width: 72px;
         height: 1px;
         margin-top: 14px;
         background: var(--accent);
+      }
+
+      .navyCallout--wide {
+        margin-top: 36px;
+      }
+
+      .navyCallout--wide p {
+        text-align: center;
+        width: 100%;
+      }
+
+      .navyCallout--wide p::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .navyCallout--compact {
+        padding: 22px 24px;
+        margin-top: 40px;
+        margin-bottom: 8px;
+      }
+
+      .navyCallout--compact p {
+        font-size: 1.35rem;
+      }
+
+      .navyCallout--narrow {
+        max-width: 640px;
+        margin-top: 36px;
+      }
+
+      .navyCallout--mini {
+        padding: 16px 20px;
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+
+      .navyCallout--mini p {
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .navyCallout--mini p::after {
+        width: 48px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       #contact .split .panel:last-child {
@@ -1464,6 +1516,12 @@
           grid-template-columns: 1fr;
           gap: 18px;
         }
+        .navyCallout {
+          padding: 22px 18px;
+        }
+        .navyCallout--narrow {
+          max-width: none;
+        }
         .row2 {
           grid-template-columns: 1fr;
         }
@@ -1683,6 +1741,10 @@
               </p>
             </article>
           </div>
+
+          <div class="navyCallout navyCallout--wide" role="note" aria-label="Approach philosophy">
+            <p>Conviction over noise. Discipline over speed.</p>
+          </div>
         </div>
       </section>
 
@@ -1709,7 +1771,7 @@
               </div>
             </div>
 
-            <div class="firmCallout" role="note" aria-label="Firm accountability statement">
+            <div class="navyCallout firmCallout" role="note" aria-label="Firm accountability statement">
               <p>Single-point accountability for every mandate</p>
             </div>
 
@@ -1794,6 +1856,10 @@
             </div>
           </div>
 
+          <div class="navyCallout navyCallout--compact" role="note" aria-label="Performance statement">
+            <p>68.56% win ratio reflects precision, not speculation.</p>
+          </div>
+
           <div class="riskGrid" aria-label="Risk management framework">
             <div class="riskItem">Position sizing and liquidity management are integrated at mandate and instrument level.</div>
             <div class="riskItem">Counterparty due diligence is maintained across tier-1 custodial and prime brokerage relationships.</div>
@@ -1835,6 +1901,10 @@
                 </p>
               </div>
             </div>
+          </div>
+
+          <div class="navyCallout navyCallout--narrow" role="note" aria-label="Oversight statement">
+            <p>Independent oversight. Real-time verification.</p>
           </div>
         </div>
       </section>
@@ -1958,6 +2028,10 @@
             <div>
               <h2>Legal Notice</h2>
             </div>
+          </div>
+
+          <div class="navyCallout navyCallout--mini" role="note" aria-label="Legal framework">
+            <p>Governed by EU regulatory standards and institutional compliance protocols</p>
           </div>
 
           <div class="panel">
@@ -2095,7 +2169,7 @@
       });
 
       // Subtle section fade-in for calmer reading rhythm
-      const revealTargets = document.querySelectorAll("section, .heroCopy, .partner-logos");
+      const revealTargets = document.querySelectorAll("section, .heroCopy, .partner-logos, .navyCallout");
       revealTargets.forEach((el) => el.classList.add("reveal"));
       if ("IntersectionObserver" in window) {
         const revealObserver = new IntersectionObserver(
