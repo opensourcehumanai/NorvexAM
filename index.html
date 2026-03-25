@@ -10,6 +10,7 @@
     />
 
     <title>Norvex Asset Management</title>
+    <link rel="icon" type="image/png" href="assets/norvex-symbol-top.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -93,6 +94,21 @@
         clip: rect(0, 0, 0, 0);
         white-space: nowrap;
         border: 0;
+      }
+
+      .sr-only:focus {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 8px 12px;
+        clip: auto;
+        white-space: normal;
+        background: #0a1a2f;
+        color: #fff;
+        z-index: 200;
       }
 
       .container {
@@ -234,6 +250,8 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
         cursor: pointer;
+        min-height: 44px;
+        min-width: 44px;
       }
 
       .hamburger {
@@ -485,6 +503,7 @@
         letter-spacing: 0.04em;
         box-shadow: none;
         transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease, opacity 180ms ease;
+        min-height: 44px;
       }
 
       .btnDark:hover {
@@ -509,6 +528,7 @@
         letter-spacing: 0.04em;
         box-shadow: none;
         transition: border-color 180ms ease, color 180ms ease, background 180ms ease, transform 180ms ease, opacity 180ms ease;
+        min-height: 44px;
       }
 
       .btnLight:hover {
@@ -877,6 +897,7 @@
         color: var(--ink);
         text-decoration: underline;
         text-underline-offset: 3px;
+        min-height: 44px;
       }
 
       .secondary:hover {
@@ -1088,6 +1109,7 @@
         font-size: 12px;
         letter-spacing: 0.04em;
         cursor: pointer;
+        min-height: 44px;
       }
 
       .reveal {
@@ -1232,6 +1254,12 @@
         }
       }
 
+      @media (max-width: 600px) {
+        .portrait {
+          min-height: 280px;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         * {
           scroll-behavior: auto !important;
@@ -1301,7 +1329,9 @@
                 >
                   <img
                     class="portraitImg"
-                    src="assets/portrait.png"
+                    src="assets/portrait-720.webp"
+                    srcset="assets/portrait-720.webp 720w, assets/portrait-1080.webp 1080w, assets/portrait.webp 1280w"
+                    sizes="(max-width: 920px) 100vw, 46vw"
                     alt="Professional headshot"
                     loading="eager"
                     decoding="async"
@@ -1671,7 +1701,7 @@
                   <a class="secondary" href="mailto:info@norvexam.com?subject=Norvex%20—%20Inquiry">
                     Email directly
                   </a>
-                  <a class="secondary" href="#top">
+                  <a class="secondary" href="#top" aria-label="Back to top">
                     Back to top
                   </a>
                 </div>
@@ -1729,7 +1759,9 @@
         <button class="modalClose" type="button" aria-label="Close image" data-close-modal="true">×</button>
         <img
           class="modalImage"
-          src="assets/portrait.png"
+          src="assets/portrait-1080.webp"
+          srcset="assets/portrait-720.webp 720w, assets/portrait-1080.webp 1080w, assets/portrait.webp 1280w"
+          sizes="(max-width: 920px) 100vw, 78vw"
           alt="Professional headshot"
           loading="lazy"
           decoding="async"
@@ -1744,7 +1776,16 @@
           <div class="footTop">
             <div class="brand" style="min-width: unset">
               <div class="logoWrap" aria-hidden="true" style="width: 34px; height: 34px; border-radius: 12px">
-                <img class="logoImg" src="assets/norvex-symbol-top.png" alt="" style="width: 24px; height: 24px" />
+                <img
+                  class="logoImg"
+                  src="assets/norvex-symbol-top-48.webp"
+                  srcset="assets/norvex-symbol-top-48.webp 48w, assets/norvex-symbol-top.webp 96w"
+                  sizes="24px"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  style="width: 24px; height: 24px"
+                />
               </div>
               <div>
                 <strong>Norvex</strong>
@@ -1768,7 +1809,8 @@
             This website is for informational purposes only and does not constitute an offer to sell or a solicitation to
             invest. Access is restricted to qualified investors in jurisdictions where such communication is permitted by
             law.<br />
-            Regulatory status and jurisdictional eligibility are reviewed during onboarding.
+            Regulatory status and jurisdictional eligibility are reviewed during onboarding.<br />
+            Last updated: <span id="lastUpdated"></span> · <a href="#" id="revokeCookies" style="text-decoration: underline">Revoke cookie consent</a>
           </div>
         </div>
       </div>
@@ -1782,6 +1824,14 @@
     <script>
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+      const lastUpdatedEl = document.getElementById("lastUpdated");
+      if (lastUpdatedEl) {
+        lastUpdatedEl.textContent = new Date().toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
 
       const navWrap = document.querySelector(".nav");
       const navToggle = document.getElementById("navToggle");
@@ -1800,18 +1850,22 @@
       // Subtle section fade-in for calmer reading rhythm
       const revealTargets = document.querySelectorAll("section, .heroCopy, .partner-logos");
       revealTargets.forEach((el) => el.classList.add("reveal"));
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
-      );
-      revealTargets.forEach((el) => revealObserver.observe(el));
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+        );
+        revealTargets.forEach((el) => revealObserver.observe(el));
+      } else {
+        revealTargets.forEach((el) => el.classList.add("in"));
+      }
 
       const headshotModal = document.getElementById("headshotModal");
       const openHeadshotBtn = document.getElementById("openHeadshotModal");
@@ -1859,6 +1913,7 @@
 
       const form = document.getElementById("contactForm");
       const formMessage = document.getElementById("formMessage");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       form?.addEventListener("submit", async (e) => {
         e.preventDefault();
         const data = new FormData(form);
@@ -1877,6 +1932,11 @@
           return;
         }
 
+        if (!emailRegex.test(email)) {
+          if (formMessage) formMessage.textContent = "Please enter a valid email address.";
+          return;
+        }
+
         const payload = { name, email, country, phone, message };
         if (formMessage) formMessage.textContent = "Submitting securely...";
 
@@ -1892,19 +1952,30 @@
           form.reset();
         } catch (_err) {
           if (formMessage) {
-            formMessage.textContent =
-              "We could not submit your inquiry at this time. Please try again or contact info@norvexam.com directly.";
+            formMessage.innerHTML =
+              "We could not submit your inquiry at this time. <a href=\"#contact\" id=\"tryAgainLink\" style=\"text-decoration: underline\">Try again</a> or contact info@norvexam.com directly.";
+            const tryAgainLink = document.getElementById("tryAgainLink");
+            tryAgainLink?.addEventListener("click", (evt) => {
+              evt.preventDefault();
+              formMessage.textContent = "";
+            });
           }
         }
       });
 
       const cookieBanner = document.getElementById("cookieBanner");
       const acceptCookies = document.getElementById("acceptCookies");
+      const revokeCookies = document.getElementById("revokeCookies");
       const cookieAccepted = localStorage.getItem("norvex_cookie_consent") === "accepted";
       if (cookieAccepted && cookieBanner) cookieBanner.style.display = "none";
       acceptCookies?.addEventListener("click", () => {
         localStorage.setItem("norvex_cookie_consent", "accepted");
         if (cookieBanner) cookieBanner.style.display = "none";
+      });
+      revokeCookies?.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("norvex_cookie_consent");
+        if (cookieBanner) cookieBanner.style.display = "flex";
       });
     </script>
   </body>
