@@ -14,18 +14,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
       rel="stylesheet"
     />
 
     <style>
       /* FINAL CONSERVATIVE INSPIRATION MATCH – HEADER + HERO FIXED – based on latest 6-page PDF */
       :root {
-        --page: #faf9f6;
+        --page: #fdf9f2;
         --page2: #f8f5f0;
         --card: #ffffff;
         --card-2: #faf9f6;
-        --ink: #0a2540;
+        --ink: #0a1a2f;
         --muted: #4a4a4a;
         --muted2: #6b6760;
         --border: #e5e0d8;
@@ -42,8 +42,8 @@
         --radius-md: 18px;
         --radius-lg: 28px;
         --max: 1320px;
-        --section-pad-desktop: 136px;
-        --section-pad-mobile: 116px;
+        --section-pad-desktop: 160px;
+        --section-pad-mobile: 120px;
 
         color-scheme: light;
       }
@@ -59,23 +59,28 @@
 
       body {
         margin: 0;
-        font-family: "IBM Plex Sans", Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        font-family: Inter, "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
         letter-spacing: -0.01em;
         color: #2a2f36;
         font-size: 19px;
-        line-height: 1.9;
+        line-height: 1.78;
         background: var(--page);
         overflow-x: hidden;
       }
 
       .font-serif {
-        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-family: "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif;
       }
 
       a {
         color: inherit;
         text-decoration: none;
         text-underline-offset: 4px;
+        transition: text-underline-offset 180ms ease, opacity 180ms ease;
+      }
+
+      a:hover {
+        text-underline-offset: 6px;
       }
 
       .sr-only {
@@ -312,7 +317,14 @@
       /* Hero */
       .hero {
         padding: 140px 0 120px;
-        background: #faf9f6;
+        background: var(--page);
+      }
+
+      .heroSubhead {
+        margin: 0 0 12px;
+        color: var(--muted2);
+        font-size: 16px;
+        letter-spacing: 0.04em;
       }
 
       .heroCard {
@@ -472,12 +484,14 @@
         font-size: 14px;
         letter-spacing: 0.04em;
         box-shadow: none;
-        transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+        transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease, opacity 180ms ease;
       }
 
       .btnDark:hover {
         border-color: #081c30;
         background: #081c30;
+        transform: translateY(-1px) scale(1.01);
+        opacity: 0.96;
       }
 
       .btnLight {
@@ -494,12 +508,14 @@
         font-size: 14px;
         letter-spacing: 0.04em;
         box-shadow: none;
-        transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+        transition: border-color 180ms ease, color 180ms ease, background 180ms ease, transform 180ms ease, opacity 180ms ease;
       }
 
       .btnLight:hover {
         border-color: #0a2540;
         background: rgba(10, 37, 64, 0.05);
+        transform: translateY(-1px) scale(1.01);
+        opacity: 0.96;
       }
 
       .trustLine {
@@ -530,6 +546,27 @@
         letter-spacing: 0.04em;
         line-height: 1.9;
         opacity: 0.94;
+      }
+
+      .partnerLogos {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+        color: #6c727d;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .partnerLogos .logo {
+        opacity: 0.72;
+        transition: opacity 180ms ease;
+      }
+
+      .partnerLogos .logo:hover {
+        opacity: 1;
       }
 
       /* Sections */
@@ -569,7 +606,9 @@
       }
 
       .sectionHead {
-        margin-bottom: 26px;
+        margin-bottom: 32px;
+        padding-left: 16px;
+        border-left: 1px solid rgba(201, 166, 107, 0.28);
       }
 
       .sectionHead h2 {
@@ -578,11 +617,11 @@
         font-weight: 400;
         letter-spacing: 0.01em;
         color: var(--text-light);
-        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-family: "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif;
       }
 
       .sectionHead p {
-        margin: 0;
+        margin: 0 0 12px;
         color: var(--text-light-2);
         max-width: 58ch;
         line-height: 1.92;
@@ -651,6 +690,7 @@
         margin-bottom: 30px;
         color: var(--muted2);
         font-size: 16px;
+        letter-spacing: 0.02em;
       }
 
       .metric-label {
@@ -688,6 +728,21 @@
         justify-items: center;
         text-align: center;
         gap: 52px;
+      }
+
+      .riskGrid {
+        margin-top: 56px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 36px;
+      }
+
+      .riskItem {
+        border-left: 1px solid rgba(201, 166, 107, 0.35);
+        padding-left: 14px;
+        font-size: 17px;
+        color: var(--muted);
+        line-height: 1.8;
       }
 
       .icon {
@@ -975,6 +1030,47 @@
         line-height: 1.5;
       }
 
+      .checkboxRow {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .checkboxRow input {
+        margin-top: 5px;
+        min-height: 16px;
+        width: 16px;
+      }
+
+      .hpField {
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      .formMessage {
+        margin-top: 10px;
+        font-size: 14px;
+        color: var(--muted2);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 500ms ease, transform 500ms ease;
+      }
+
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
       footer {
         padding: 72px 0 72px;
         border-top: 1px solid var(--border);
@@ -1090,6 +1186,10 @@
         .split {
           grid-template-columns: 1fr;
         }
+        .riskGrid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
         .row2 {
           grid-template-columns: 1fr;
         }
@@ -1135,7 +1235,7 @@
 
           <div class="navRight">
             <div class="langSwitch" aria-label="Language switcher">
-              <span>EN</span><span class="sep" aria-hidden="true"></span><span>DE</span><span class="sep" aria-hidden="true"></span><span>RU</span>
+              <span>EN</span>
             </div>
             <button class="navToggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNavList">
               MENU
@@ -1180,11 +1280,12 @@
 
                 <div class="heroCopy">
                   <div class="kicker">Norvex Asset Management</div>
+                  <p class="heroSubhead">Exclusively serving institutional capital and family offices.</p>
                   <h1 class="font-serif">Trusted judgement,<br />held to a serious standard.</h1>
                   <p>
-                    Fynn Schreiter leads each relationship and investment decision directly. One principal, no committee
-                    layers, every decision traceable to a single point of accountability. Norvex provides the discipline,
-                    clarity and control that serious capital deserves.
+                    Fynn Schreiter leads each relationship and investment decision directly. A single principal remains
+                    accountable for mandate execution, supported by institutional-grade operational controls, independent
+                    oversight and risk-aware capital deployment.
                   </p>
 
                   <div class="rule" role="presentation"></div>
@@ -1212,6 +1313,13 @@
                     <span>Prime Brokerage: Tier-1 Counterparties</span>
                     <span class="dot" aria-hidden="true">•</span>
                     <span>Independent Oversight</span>
+                  </div>
+                  <div class="partnerLogos" aria-label="Institutional ecosystem">
+                    <span class="logo">Institutional Custody</span>
+                    <span class="dot" aria-hidden="true">•</span>
+                    <span class="logo">Prime Brokerage</span>
+                    <span class="dot" aria-hidden="true">•</span>
+                    <span class="logo">External Audit</span>
                   </div>
                 </div>
               </div>
@@ -1298,7 +1406,8 @@
                 </h3>
                 <p class="prose" style="margin: 0">
                   Norvex is led personally, but structured for continuity under clear legal arrangements. Defined deputy
-                  roles ensure the structure remains operable when required.
+                  roles, including deputy portfolio management and compliance coverage, ensure the structure remains operable
+                  when required.
                 </p>
               </div>
             </div>
@@ -1310,7 +1419,9 @@
                 </h3>
                 <p class="prose" style="margin: 0">
                   The legal and notarial setup is designed to support proper oversight, enforceability and client
-                  protection. Internal guardrails support disciplined liquidity management and orderly withdrawals.
+                  protection. Internal guardrails support disciplined liquidity management and orderly withdrawals. Client
+                  assets are held in segregated accounts with independent custodians, and regulatory classification is
+                  assessed per mandate and jurisdiction.
                 </p>
               </div>
             </div>
@@ -1338,8 +1449,8 @@
                   <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                 </svg>
               </div>
-              <div class="metric-value">€12M</div>
-              <p class="metric-label">Assets under management</p>
+              <div class="metric-value">Select</div>
+              <p class="metric-label">Capital under management</p>
             </article>
 
             <article class="tile">
@@ -1353,8 +1464,8 @@
                   />
                 </svg>
               </div>
-              <div class="metric-value">11%</div>
-              <p class="metric-label">Monthly return (avg.)</p>
+              <div class="metric-value">Sharpe</div>
+              <p class="metric-label">Risk-adjusted mandate focus</p>
             </article>
 
             <article class="tile">
@@ -1369,14 +1480,21 @@
                   />
                 </svg>
               </div>
-              <div class="metric-value">3.2</div>
-              <p class="metric-label">Avg. trades per day</p>
+              <div class="metric-value">Cycle</div>
+              <p class="metric-label">Multi-cycle execution discipline</p>
             </article>
           </div>
 
           <div class="perf-bar">
-            <div><strong>68.56%</strong> observed execution win ratio</div>
+            <div><strong>Execution</strong> consistent discipline across market cycles</div>
             <div class="disclaimer">Past performance is not indicative of future results.</div>
+          </div>
+
+          <div class="riskGrid" aria-label="Risk management framework">
+            <div class="riskItem">Position sizing and liquidity management are integrated at mandate and instrument level.</div>
+            <div class="riskItem">Counterparty due diligence is maintained across tier-1 custodial and prime brokerage relationships.</div>
+            <div class="riskItem">Independent risk oversight is embedded in pre-trade and ongoing monitoring processes.</div>
+            <div class="riskItem">Maximum drawdown tolerance is assessed per mandate and reviewed continuously across market regimes.</div>
           </div>
         </div>
       </section>
@@ -1404,11 +1522,12 @@
             <div class="panel">
               <div class="pad">
                 <h3 style="margin: 0 0 10px; color: var(--ink); font-size: 1.1rem; letter-spacing: -0.02em">
-                  Risk and disclosure
+                  Risk &amp; Disclosure
                 </h3>
                 <p class="prose" style="margin: 0">
                   This website is provided for informational purposes only and does not constitute investment advice, an offer,
-                  or solicitation.
+                  or solicitation. The firm’s investment process incorporates real-time risk monitoring and independent
+                  verification.
                 </p>
               </div>
             </div>
@@ -1433,6 +1552,10 @@
                 </p>
 
                 <form id="contactForm" aria-label="Contact form">
+                  <label class="hpField" aria-hidden="true">
+                    Leave this field empty
+                    <input name="website" tabindex="-1" autocomplete="off" />
+                  </label>
                   <div class="row2">
                     <label>
                       Name *
@@ -1468,13 +1591,20 @@
                     potential business relationship. See our <a href="#privacy" style="text-decoration: underline">Privacy Policy</a>.
                   </p>
 
+                  <label class="checkboxRow">
+                    <input type="checkbox" name="qualifiedInvestor" required />
+                    <span>I confirm that I am a qualified investor under applicable regulations.</span>
+                  </label>
+
                   <div class="submitRow">
                     <button type="submit" class="cta cta--on-light" style="cursor: pointer">
-                      Submit Inquiry
+                      Request Confidential Consultation
                     </button>
                   </div>
+                  <div class="formMessage" id="formMessage" aria-live="polite"></div>
                 </form>
-                <p class="note">Access is limited to qualified investors.</p>
+                <p class="note">Minimum investment €500,000 (or equivalent). Access is limited to qualified investors.</p>
+                <p class="note">All communications are encrypted in transit and handled in accordance with GDPR.</p>
               </div>
             </div>
 
@@ -1547,7 +1677,9 @@
             <div class="pad">
               <p class="prose" style="margin: 0">
                 By submitting this form, your information will be processed to respond to your inquiry and manage a
-                potential business relationship.
+                potential business relationship. Data is retained only as long as necessary for qualified investor
+                onboarding, mandate discussions, or legal obligations, and you may request access, correction, or deletion
+                in accordance with applicable privacy law.
               </p>
             </div>
           </div>
@@ -1563,7 +1695,7 @@
           class="modalImage"
           src="assets/portrait.png"
           alt="Professional headshot"
-          loading="eager"
+          loading="lazy"
           decoding="async"
         />
         <div class="modalMeta" id="headshotModalTitle">Professional profile headshot</div>
@@ -1596,10 +1728,11 @@
           </div>
 
           <div class="legal">
-            © <span id="year"></span> Norvex Asset Management. Illustrative figures · past performance is not indicative of
-            future results.<br />
-            This website is provided for informational purposes only and does not constitute investment advice, an offer,
-            or solicitation.
+            © <span id="year"></span> Norvex Asset Management. Past performance is not indicative of future results.<br />
+            This website is for informational purposes only and does not constitute an offer to sell or a solicitation to
+            invest. Access is restricted to qualified investors in jurisdictions where such communication is permitted by
+            law.<br />
+            Regulatory status and jurisdictional eligibility are reviewed during onboarding.
           </div>
         </div>
       </div>
@@ -1622,6 +1755,22 @@
           navToggle?.setAttribute("aria-expanded", "false");
         });
       });
+
+      // Subtle section fade-in for calmer reading rhythm
+      const revealTargets = document.querySelectorAll("section, .heroCopy, .partnerLogos");
+      revealTargets.forEach((el) => el.classList.add("reveal"));
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+      );
+      revealTargets.forEach((el) => revealObserver.observe(el));
 
       const headshotModal = document.getElementById("headshotModal");
       const openHeadshotBtn = document.getElementById("openHeadshotModal");
@@ -1650,8 +1799,26 @@
         if (e.key === "Escape" && headshotModal && !headshotModal.hidden) closeHeadshotModal();
       });
 
+      headshotModal?.addEventListener("keydown", (e) => {
+        if (e.key !== "Tab") return;
+        const focusables = headshotModal.querySelectorAll(
+          "button,[href],input,select,textarea,[tabindex]:not([tabindex='-1'])"
+        );
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      });
+
       const form = document.getElementById("contactForm");
-      form?.addEventListener("submit", (e) => {
+      const formMessage = document.getElementById("formMessage");
+      form?.addEventListener("submit", async (e) => {
         e.preventDefault();
         const data = new FormData(form);
         const name = String(data.get("name") ?? "").trim();
@@ -1659,31 +1826,53 @@
         const country = String(data.get("country") ?? "").trim();
         const phone = String(data.get("phone") ?? "").trim();
         const message = String(data.get("message") ?? "").trim();
+        const website = String(data.get("website") ?? "").trim();
+        const qualifiedInvestor = String(data.get("qualifiedInvestor") ?? "").trim();
 
-        const to = "info@norvexam.com";
-        const subject = `Norvex — Inquiry${name ? ` (${name})` : ""}`;
-        const body = [
-          name ? `Name: ${name}` : null,
-          email ? `Email: ${email}` : null,
-          phone ? `Phone: ${country} ${phone}` : null,
-          "",
-          message,
-          "",
-          "—",
-          "Sent from norvexam.com (contact form draft)",
-        ]
-          .filter((x) => x !== null)
-          .join("\n");
+        if (website) return; // honeypot trap
 
-        const url =
-          "mailto:" +
-          encodeURIComponent(to) +
-          "?subject=" +
-          encodeURIComponent(subject) +
-          "&body=" +
-          encodeURIComponent(body);
+        if (!qualifiedInvestor) {
+          if (formMessage) formMessage.textContent = "Please confirm qualified investor status before submitting.";
+          return;
+        }
 
-        window.location.href = url;
+        const payload = { name, email, country, phone, message };
+        if (formMessage) formMessage.textContent = "Submitting securely...";
+
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error("request failed");
+          if (formMessage) formMessage.textContent = "Thank you. Your confidential inquiry has been received.";
+          form.reset();
+        } catch (_err) {
+          // Fallback for static hosting environments without backend.
+          const to = "info@norvexam.com";
+          const subject = `Norvex — Confidential Consultation${name ? ` (${name})` : ""}`;
+          const body = [
+            name ? `Name: ${name}` : null,
+            email ? `Email: ${email}` : null,
+            phone ? `Phone: ${country} ${phone}` : null,
+            "",
+            message,
+            "",
+            "—",
+            "Sent from norvexam.com",
+          ]
+            .filter((x) => x !== null)
+            .join("\n");
+          window.location.href =
+            "mailto:" +
+            encodeURIComponent(to) +
+            "?subject=" +
+            encodeURIComponent(subject) +
+            "&body=" +
+            encodeURIComponent(body);
+          if (formMessage) formMessage.textContent = "Your email client will open to complete submission.";
+        }
       });
     </script>
   </body>
