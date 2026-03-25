@@ -31,8 +31,8 @@
         --muted2: #6b6760;
         --border: #e5e0d8;
         --header: #faf9f6;
-        --accent: #c9a66b;
-        --accent-2: #c9a66b;
+        --accent: #c6a85a;
+        --accent-2: #c6a85a;
         --accent-dim: rgba(201, 166, 107, 0.14);
         --success: #6b8e6b;
         --text-light: #0a2540;
@@ -43,8 +43,8 @@
         --radius-md: 18px;
         --radius-lg: 28px;
         --max: 1200px;
-        --section-pad-desktop: 100px;
-        --section-pad-mobile: 80px;
+        --section-pad-desktop: 120px;
+        --section-pad-mobile: 90px;
 
         color-scheme: light;
       }
@@ -58,11 +58,15 @@
         height: 100%;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family: Inter, "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
         letter-spacing: -0.01em;
-        color: #2a2f36;
+        color: #3a3a3a;
         font-size: 17px;
         line-height: 1.65;
         background: var(--page);
@@ -234,6 +238,7 @@
         font-weight: 500;
         letter-spacing: 0.03em;
         transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+        min-height: 44px;
       }
 
       .navToggle {
@@ -320,7 +325,10 @@
       }
 
       .cta--on-light:hover {
-        background: #c9a66b;
+        background: #0a1a2f;
+        color: var(--accent);
+        border-color: #0a1a2f;
+        box-shadow: 0 8px 18px rgba(10, 26, 47, 0.12);
       }
 
       .cta:focus-visible,
@@ -334,7 +342,7 @@
 
       /* Hero */
       .hero {
-        padding: 100px 0 80px;
+        padding: 120px 0 100px;
         background: var(--page);
       }
 
@@ -447,8 +455,8 @@
 
       .kicker {
         font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.22em;
+        font-weight: 500;
+        letter-spacing: 0.28em;
         text-transform: uppercase;
         color: var(--accent);
       }
@@ -458,7 +466,7 @@
         font-weight: 500;
         font-size: clamp(2.8rem, 4.8vw, 4rem);
         line-height: 1.15;
-        letter-spacing: 0.02em;
+        letter-spacing: -0.005em;
       }
 
       .heroCopy p {
@@ -509,6 +517,7 @@
       .btnDark:hover {
         border-color: #081c30;
         background: #081c30;
+        box-shadow: 0 8px 18px rgba(10, 26, 47, 0.12);
         transform: translateY(-1px) scale(1.01);
         opacity: 0.96;
       }
@@ -534,6 +543,7 @@
       .btnLight:hover {
         border-color: #0a2540;
         background: rgba(10, 37, 64, 0.05);
+        box-shadow: 0 8px 18px rgba(10, 26, 47, 0.08);
         transform: translateY(-1px) scale(1.01);
         opacity: 0.96;
       }
@@ -584,11 +594,12 @@
         max-height: 28px;
         filter: grayscale(100%);
         opacity: 0.72;
-        transition: opacity 180ms ease;
+        transition: opacity 180ms ease, transform 180ms ease;
       }
 
       .partner-logos .logo:hover {
         opacity: 1;
+        transform: scale(1.03);
       }
 
       /* Sections */
@@ -628,7 +639,7 @@
       }
 
       .sectionHead {
-        margin-bottom: 32px;
+        margin-bottom: 48px;
         padding-left: 16px;
         border-left: 1px solid rgba(201, 166, 107, 0.28);
       }
@@ -637,7 +648,7 @@
         margin: 0 0 18px;
         font-size: clamp(2.5rem, 4vw, 3.2rem);
         font-weight: 400;
-        letter-spacing: 0.01em;
+        letter-spacing: -0.005em;
         color: var(--text-light);
         font-family: "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif;
       }
@@ -664,6 +675,7 @@
         padding: 0;
         min-height: 0;
         color: var(--ink);
+        transition: transform 200ms ease, box-shadow 200ms ease;
       }
 
       .tile h3 {
@@ -696,6 +708,18 @@
       .philosophy {
         padding: 100px 0;
         text-align: center;
+        position: relative;
+      }
+
+      .philosophy::before {
+        content: "";
+        position: absolute;
+        inset: 12% 10% 12% 10%;
+        background:
+          linear-gradient(90deg, rgba(10, 26, 47, 0.03) 1px, transparent 1px) 0 0 / 42px 42px,
+          linear-gradient(rgba(10, 26, 47, 0.03) 1px, transparent 1px) 0 0 / 42px 42px;
+        opacity: 0.28;
+        pointer-events: none;
       }
 
       .philosophyText {
@@ -705,6 +729,8 @@
         margin: 0 auto;
         color: var(--ink);
         line-height: 1.5;
+        position: relative;
+        z-index: 1;
       }
 
       .perfContext {
@@ -765,6 +791,18 @@
         font-size: 17px;
         color: var(--muted);
         line-height: 1.8;
+        transition: border-left-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .tile:hover {
+        transform: scale(1.01);
+        box-shadow: 0 8px 16px rgba(10, 26, 47, 0.06);
+      }
+
+      .riskItem:hover {
+        border-left-color: rgba(198, 168, 90, 0.75);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(10, 26, 47, 0.05);
       }
 
       .icon {
@@ -898,10 +936,14 @@
         text-decoration: underline;
         text-underline-offset: 3px;
         min-height: 44px;
+        text-decoration-thickness: 1px;
+        transition: text-underline-offset 180ms ease, text-decoration-thickness 180ms ease, color 180ms ease;
       }
 
       .secondary:hover {
         color: var(--muted);
+        text-underline-offset: 5px;
+        text-decoration-thickness: 2px;
       }
 
       .fineprint {
@@ -920,6 +962,12 @@
         position: fixed;
         inset: 0;
         z-index: 90;
+        opacity: 0;
+        transition: opacity 220ms ease;
+      }
+
+      .modal:not([hidden]) {
+        opacity: 1;
       }
 
       .modalBackdrop {
@@ -928,6 +976,13 @@
         background: rgba(10, 37, 64, 0.42);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
+        transition: opacity 220ms ease;
+      }
+
+      @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+        .modalBackdrop {
+          background: rgba(10, 37, 64, 0.56);
+        }
       }
 
       .modalDialog {
@@ -939,6 +994,14 @@
         border: 1px solid var(--border);
         box-shadow: none;
         overflow: hidden;
+        transform: translateY(10px);
+        transition: transform 220ms ease, opacity 220ms ease;
+        opacity: 0;
+      }
+
+      .modal:not([hidden]) .modalDialog {
+        transform: none;
+        opacity: 1;
       }
 
       .modalImage {
@@ -994,7 +1057,7 @@
       input,
       textarea {
         width: 100%;
-        border-radius: 0;
+        border-radius: 6px;
         border: 1px solid var(--border);
         background: #fff;
         min-height: 64px;
@@ -1006,7 +1069,8 @@
 
       input::placeholder,
       textarea::placeholder {
-        color: var(--muted2);
+        color: #b0a9a0;
+        font-weight: 400;
       }
 
       textarea {
@@ -1022,7 +1086,7 @@
 
       select {
         width: 100%;
-        border-radius: 0;
+        border-radius: 6px;
         border: 1px solid var(--border);
         background: #fff;
         min-height: 64px;
@@ -1083,6 +1147,25 @@
         color: var(--muted2);
       }
 
+      /* Contact submit loading indicator */
+      .spinner {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+        border-top-color: #0a1a2f;
+        display: inline-block;
+        vertical-align: -2px;
+        margin-right: 8px;
+        animation: spin 700ms linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
       .cookieBanner {
         position: fixed;
         left: 16px;
@@ -1124,8 +1207,9 @@
       }
 
       footer {
-        padding: 72px 0 72px;
-        border-top: 1px solid var(--border);
+        padding: 80px 0;
+        border-top: 1px solid transparent;
+        border-image: linear-gradient(90deg, transparent, rgba(198, 168, 90, 0.45), transparent) 1;
         background: transparent;
       }
 
@@ -1170,10 +1254,15 @@
         border-radius: 0;
         border: none;
         color: inherit;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-underline-offset: 4px;
+        transition: color 180ms ease, text-decoration-color 180ms ease;
       }
 
       .mutedLinks a:hover {
         color: var(--text-light);
+        text-decoration-color: currentColor;
       }
 
       .legal {
@@ -1257,6 +1346,17 @@
       @media (max-width: 600px) {
         .portrait {
           min-height: 280px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .heroActions {
+          gap: 10px;
+        }
+        .btnDark,
+        .btnLight {
+          width: 100%;
+          justify-content: center;
         }
       }
 
@@ -1375,6 +1475,7 @@
                     <span>Independent Oversight</span>
                   </div>
                   <div class="partner-logos" aria-label="Institutional ecosystem">
+                    <!-- Replace with verified partner SVG logos when available -->
                     <span class="logo">Institutional Custody</span>
                     <span class="dot" aria-hidden="true">•</span>
                     <span class="logo">Prime Brokerage</span>
@@ -1860,7 +1961,7 @@
               }
             });
           },
-          { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.2 }
         );
         revealTargets.forEach((el) => revealObserver.observe(el));
       } else {
@@ -1913,6 +2014,8 @@
 
       const form = document.getElementById("contactForm");
       const formMessage = document.getElementById("formMessage");
+      const submitBtn = form?.querySelector("button[type='submit']");
+      const submitBtnLabel = submitBtn?.textContent?.trim() || "Request Confidential Consultation";
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       form?.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -1939,6 +2042,11 @@
 
         const payload = { name, email, country, phone, message };
         if (formMessage) formMessage.textContent = "Submitting securely...";
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.setAttribute("aria-busy", "true");
+          submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span>Submitting...';
+        }
 
         try {
           // Placeholder endpoint; replace with production backend handler.
@@ -1959,6 +2067,12 @@
               evt.preventDefault();
               formMessage.textContent = "";
             });
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.removeAttribute("aria-busy");
+            submitBtn.textContent = submitBtnLabel;
           }
         }
       });
