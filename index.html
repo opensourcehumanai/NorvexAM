@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
       rel="stylesheet"
     />
 
@@ -59,7 +59,7 @@
 
       body {
         margin: 0;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        font-family: "IBM Plex Sans", Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
         letter-spacing: -0.01em;
         color: var(--ink);
         font-size: 19px;
@@ -104,7 +104,7 @@
         backdrop-filter: blur(0);
         -webkit-backdrop-filter: blur(0);
         background: #0a2540;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: 0 1px 0 rgba(10, 37, 64, 0.08);
       }
 
@@ -515,6 +515,13 @@
         color: var(--accent);
       }
 
+      .institutionalLine {
+        margin-top: 14px;
+        font-size: 14px;
+        color: var(--muted2);
+        letter-spacing: 0.04em;
+      }
+
       /* Sections */
       section {
         padding: var(--section-pad-desktop) 0;
@@ -606,13 +613,34 @@
 
       .metric-value {
         margin: 0 0 8px;
-        font-size: clamp(4.5rem, 7vw, 5rem);
+        font-size: clamp(4rem, 6vw, 4.4rem);
         font-weight: 400;
         letter-spacing: -0.03em;
         color: var(--ink);
         font-family: "Playfair Display", Georgia, "Times New Roman", serif;
         border-bottom: 2px solid var(--accent);
         display: inline-block;
+      }
+
+      .philosophy {
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .philosophyText {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        max-width: 720px;
+        margin: 0 auto;
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      .perfContext {
+        text-align: center;
+        margin-bottom: 30px;
+        color: var(--muted2);
+        font-size: 16px;
       }
 
       .metric-label {
@@ -1152,10 +1180,10 @@
 
                   <div class="heroActions" aria-label="Primary actions">
                     <a class="btnDark" href="#contact">
-                      ARRANGE A CONVERSATION
+                      Request Private Discussion
                     </a>
                     <a class="btnLight" href="#firm">
-                      VIEW FIRM OVERVIEW
+                      Access Firm Overview
                     </a>
                   </div>
 
@@ -1166,6 +1194,13 @@
                     <span class="dot" aria-hidden="true">•</span>
                     <span class="label">Built for Continuity</span>
                   </div>
+                  <div class="institutionalLine" aria-label="Institutional trust layer">
+                    <span>Custody: Institutional Partners</span>
+                    <span class="dot" aria-hidden="true">•</span>
+                    <span>Prime Brokerage: Tier-1 Counterparties</span>
+                    <span class="dot" aria-hidden="true">•</span>
+                    <span>Independent Oversight</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1173,12 +1208,21 @@
         </div>
       </div>
 
+      <section class="philosophy">
+        <div class="container">
+          <p class="philosophyText">
+            Capital is managed with a long-term perspective, where discipline outweighs opportunity.
+          </p>
+        </div>
+      </section>
+
       <section id="approach" aria-label="Approach">
         <div class="container">
           <div class="sectionHead">
             <div>
               <h2>Approach</h2>
               <p>A focused approach to modern markets.</p>
+              <p>Capital preservation and disciplined risk control remain the primary objective across all market conditions.</p>
             </div>
           </div>
 
@@ -1270,6 +1314,10 @@
               <p>Discipline, measured in results.</p>
             </div>
           </div>
+
+          <p class="perfContext">
+            Select performance indicators reflecting disciplined execution.
+          </p>
 
           <div class="grid3">
             <article class="tile">
@@ -1410,10 +1458,11 @@
 
                   <div class="submitRow">
                     <button type="submit" class="cta cta--on-light" style="cursor: pointer">
-                      Send Message
+                      Submit Inquiry
                     </button>
                   </div>
                 </form>
+                <p class="note">Access is limited to qualified investors.</p>
               </div>
             </div>
 
